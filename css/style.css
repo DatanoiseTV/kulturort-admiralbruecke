@@ -22,7 +22,8 @@
   --font-body: "Archivo", "Helvetica Neue", sans-serif;
   --font-amt: "IBM Plex Mono", "Courier New", monospace;
   --font-quote: "Instrument Serif", Georgia, serif;
-  --rand: clamp(1.25rem, 4vw, 4rem);
+  --rand: clamp(1.25rem, 5vw, 6rem);
+  --inhalt-breite: 84rem;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -38,6 +39,17 @@ body {
   line-height: 1.65;
   color: var(--tinte);
   background: var(--papier);
+}
+
+/* subtle paper grain over everything */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 img { display: block; max-width: 100%; }
@@ -82,11 +94,13 @@ a { color: inherit; }
   top: 0; left: 0; right: 0;
   z-index: 10;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  padding: 1.1rem var(--rand);
+  gap: 0.4rem 1rem;
+  padding: 1.1rem var(--rand) 2.2rem;
   color: var(--papier);
+  background: linear-gradient(rgba(13, 21, 36, 0.55), transparent);
 }
 
 .kopf__marke {
@@ -106,11 +120,35 @@ a { color: inherit; }
   text-transform: uppercase;
 }
 
-.kopf__nav a { text-decoration: none; }
-.kopf__nav a:hover { color: var(--laterne); }
+.kopf__nav a { text-decoration: none; padding: 0.2em 0; }
+
+.kopf__lang {
+  font-family: var(--font-amt);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--papier);
+  background: transparent;
+  border: 2px solid var(--laterne);
+  padding: 0.35em 0.7em;
+  cursor: pointer;
+}
+
+.kopf__lang:hover { background: var(--laterne); color: var(--nacht); }
+
+/* Sprachumschaltung: inaktive Sprache ausblenden */
+html[data-lang="en"] .de { display: none !important; }
+html[data-lang="de"] .en { display: none !important; }
+.kopf__nav a:hover {
+  color: var(--laterne);
+  text-decoration: underline;
+  text-underline-offset: 0.45em;
+  text-decoration-thickness: 2px;
+}
 
 @media (max-width: 720px) {
-  .kopf__nav { display: none; }
+  .kopf__nav { gap: 0.5rem 1rem; font-size: 0.68rem; flex-wrap: wrap; }
 }
 
 /* --- Hero: Blaue Stunde ---------------------------------------------------- */
@@ -174,6 +212,10 @@ a { color: inherit; }
   -webkit-text-stroke: 2px var(--papier);
 }
 
+@supports not (-webkit-text-stroke: 2px white) {
+  .zeile--kontur { color: var(--papier); opacity: 0.85; }
+}
+
 .buehne__unterzeile {
   max-width: 34em;
   margin-top: 1.4rem;
@@ -235,10 +277,10 @@ a { color: inherit; }
 .laufband li {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 0 0.75em;
+  letter-spacing: 0.1em;
+  padding: 0 0.85em;
 }
 
 .laufband li::after {
@@ -260,7 +302,19 @@ a { color: inherit; }
 
 .abschnitt { padding: clamp(4rem, 9vw, 7.5rem) var(--rand); }
 
-.abschnitt__kopf { margin-bottom: clamp(2rem, 4vw, 3.5rem); max-width: 60rem; }
+.abschnitt__kopf,
+.ort__raster,
+.djam__raster,
+.galerie__raster,
+.aufruf__raster,
+.dokumente__innen {
+  max-width: var(--inhalt-breite);
+  margin-inline: auto;
+}
+
+.abschnitt__kopf { margin-bottom: clamp(2rem, 4vw, 3.5rem); }
+
+.abschnitt__kopf h2 { max-width: 16em; }
 
 .abschnitt__kopf .stempel { margin-bottom: 1.3rem; }
 
@@ -320,16 +374,6 @@ a { color: inherit; }
 .ort__bild img {
   border: 3px solid var(--tinte);
   box-shadow: 10px 10px 0 var(--kanal);
-}
-
-.ort__bild figcaption,
-.galerie figcaption {
-  font-family: var(--font-amt);
-  font-size: 0.7rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin-top: 0.8rem;
-  color: var(--kanal);
 }
 
 @media (max-width: 880px) {
@@ -414,18 +458,14 @@ a { color: inherit; }
   gap: clamp(1rem, 2.5vw, 2rem);
 }
 
-.galerie figure:nth-child(1) { transform: rotate(-1deg); }
-.galerie figure:nth-child(2) { transform: rotate(0.8deg); }
-.galerie figure:nth-child(3) { transform: rotate(-0.6deg); }
-.galerie figure:nth-child(4) { transform: rotate(1.1deg); }
-.galerie figure:nth-child(5) { transform: rotate(-1.2deg); }
-.galerie figure:nth-child(6) { transform: rotate(0.6deg); }
+.galerie figure:nth-child(odd)  { transform: rotate(-0.5deg); }
+.galerie figure:nth-child(even) { transform: rotate(0.5deg); }
 
 .galerie img {
   border: 3px solid var(--tinte);
-  box-shadow: 8px 8px 0 rgba(25, 25, 20, 0.85);
-  filter: saturate(0.55) contrast(1.02);
-  transition: filter 220ms ease, transform 220ms ease;
+  box-shadow: 6px 6px 0 rgba(25, 25, 20, 0.8);
+  filter: saturate(0.6) contrast(1.02);
+  transition: filter 220ms ease, translate 220ms ease;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -435,6 +475,7 @@ a { color: inherit; }
 .galerie figure:hover img,
 .galerie figure:focus-within img {
   filter: saturate(1.1);
+  translate: 0 -3px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -446,6 +487,76 @@ a { color: inherit; }
 }
 @media (max-width: 560px) {
   .galerie__raster { grid-template-columns: 1fr; }
+}
+
+/* --- Chronik --------------------------------------------------------------------- */
+
+.chronik { background: var(--papier); }
+
+.chronik__intro { max-width: 42em; margin-bottom: 2.5rem; }
+
+.zeitleiste {
+  list-style: none;
+  max-width: 46rem;
+  border-left: 3px solid var(--tinte);
+  display: grid;
+  gap: 1.8rem;
+  padding-left: 1.8rem;
+}
+
+.zeitleiste li { position: relative; }
+
+.zeitleiste li::before {
+  content: "";
+  position: absolute;
+  left: calc(-1.8rem - 3px - 5px);
+  top: 0.35em;
+  width: 13px;
+  height: 13px;
+  background: var(--signal);
+  border: 2.5px solid var(--papier);
+}
+
+.zeitleiste__jahr {
+  display: block;
+  font-family: var(--font-amt);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: var(--signal);
+  margin-bottom: 0.25rem;
+}
+
+.zeitleiste__text { max-width: 40em; }
+
+.zeitleiste .hervorgehoben {
+  background: var(--papier-dunkel);
+  border: 2px solid var(--tinte);
+  padding: 1.1rem 1.3rem;
+  margin-left: -1.3rem;
+}
+
+.zeitleiste .hervorgehoben::before {
+  left: calc(-0.5rem - 3px - 5px);
+  top: calc(0.35em + 1.1rem);
+}
+
+.chronik__quellen,
+.chronik__quellen a {
+  font-family: var(--font-amt);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--kanal);
+}
+
+.chronik__quellen { margin-top: 2.5rem; max-width: 46rem; }
+
+.chronik__quellen a { text-underline-offset: 0.25em; }
+.chronik__quellen a:hover { color: var(--signal); }
+
+.chronik__innen {
+  max-width: var(--inhalt-breite);
+  margin-inline: auto;
 }
 
 /* --- Aufruf --------------------------------------------------------------------- */
@@ -509,8 +620,8 @@ a { color: inherit; }
   color: var(--tinte);
   padding: 1.1rem 1.2rem 1.1rem 3.4rem;
   position: relative;
-  border: 3px solid var(--tinte);
-  box-shadow: 6px 6px 0 var(--tinte);
+  border: 2.5px solid var(--tinte);
+  box-shadow: 5px 5px 0 var(--tinte);
 }
 
 .mitmachen li::before {
@@ -588,7 +699,12 @@ a { color: inherit; }
   font-weight: 700;
   font-size: 1.15rem;
   text-transform: uppercase;
+  transition: background-color 150ms ease;
 }
+
+.dokument summary:hover { background: rgba(228, 73, 31, 0.07); }
+
+.dokument[open] summary { border-bottom: 2px solid var(--tinte); }
 
 .dokument summary::-webkit-details-marker { display: none; }
 
@@ -605,7 +721,7 @@ a { color: inherit; }
 .dokument summary .eyebrow { color: var(--kanal); font-weight: 400; }
 
 .dokument__inhalt {
-  padding: 0 1.5rem 2rem;
+  padding: 1.5rem 1.5rem 2rem;
   max-width: 46rem;
 }
 
@@ -669,3 +785,17 @@ a { color: inherit; }
   text-transform: uppercase;
   color: rgba(239, 230, 212, 0.7);
 }
+
+/* --- Einblenden beim Scrollen ---------------------------------------------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  .anim {
+    opacity: 0;
+    translate: 0 18px;
+    transition: opacity 600ms ease, translate 600ms ease;
+  }
+  .anim.sichtbar { opacity: 1; translate: 0 0; }
+}
+
+/* Anker nicht unter dem Seitenrand verstecken */
+section[id] { scroll-margin-top: 1rem; }
