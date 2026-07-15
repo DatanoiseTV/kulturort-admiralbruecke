@@ -1,8 +1,8 @@
 <?php
 /**
  * Newsletter-Verwaltung – Vertrag: docs/api-contract.md
- * HTTP Basic Auth gegen ~/kulturort-newsletter/config.php,
- * Abonnentenliste, CSV-Export, Löschen, Versand an alle Bestätigten.
+ * Session-Login, Abonnentenliste, CSV-Export, Löschen,
+ * Versand an alle Bestätigten.
  */
 
 declare(strict_types=1);
@@ -12,8 +12,9 @@ const NL_DIR    = '/home/syso/kulturort-newsletter';
 const NL_DB     = NL_DIR . '/newsletter.sqlite';
 const NL_CONFIG = NL_DIR . '/config.php';
 const HOSTS     = ['syso.uber.space', 'kulturort-admiralbruecke.de', 'www.kulturort-admiralbruecke.de'];
-
-// ---- Auth -----------------------------------------------------------------
+const IDLE_TIMEOUT_S   = 4 * 3600;
+const SPERRE_FENSTER_S = 15 * 60;
+const SPERRE_VERSUCHE  = 8;
 
 if (!is_file(NL_CONFIG)) {
     http_response_code(503);
@@ -21,21 +22,8 @@ if (!is_file(NL_CONFIG)) {
 }
 $cfg = require NL_CONFIG;
 
-$nutzer   = (string)($_SERVER['PHP_AUTH_USER'] ?? '');
-$passwort = (string)($_SERVER['PHP_AUTH_PW'] ?? '');
-if ($nutzer !== 'djam' || !password_verify($passwort, (string)$cfg['pass_hash'])) {
-    header('WWW-Authenticate: Basic realm="Kulturort Verwaltung", charset="UTF-8"');
-    http_response_code(401);
-    exit('Anmeldung erforderlich.');
-}
-
-$csrf = hash_hmac('sha256', gmdate('Y-m-d'), (string)$cfg['secret']);
-
-function csrf_pruefen(string $csrf): void {
-    if (!hash_equals($csrf, (string)($_POST['csrf'] ?? ''))) {
-        http_response_code(403);
-        exit('Ungültiges Formular-Token, bitte Seite neu laden.');
-    }
+function e(string $s): string {
+    return htmlspecialchars($s, ENT_QUOTES, 'UTF-8');
 }
 
 function basis_url(): string {
@@ -46,13 +34,172 @@ function basis_url(): string {
     return 'https://' . $host;
 }
 
-function e(string $s): string {
-    return htmlspecialchars($s, ENT_QUOTES, 'UTF-8');
+$pdo = new PDO('sqlite:' . NL_DB, null, null, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+$pdo->exec('CREATE TABLE IF NOT EXISTS login_versuche (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    ip_hash TEXT NOT NULL,
+    ts INTEGER NOT NULL
+)');
+
+// ---- Session ------------------------------------------------------------------
+
+session_name('kulturort_session');
+session_set_cookie_params([
+    'lifetime' => 0,
+    'path'     => '/',
+    'secure'   => true,
+    'httponly' => true,
+    'samesite' => 'Lax',
+]);
+ini_set('session.use_strict_mode', '1');
+session_start();
+
+$ip_hash = hash('sha256', ($_SERVER['REMOTE_ADDR'] ?? '') . (string)$cfg['secret']);
+
+$angemeldet = ($_SESSION['angemeldet'] ?? false) === true;
+if ($angemeldet && time() - (int)($_SESSION['letzte_aktion'] ?? 0) > IDLE_TIMEOUT_S) {
+    session_unset();
+    session_destroy();
+    $angemeldet = false;
+}
+if ($angemeldet) {
+    $_SESSION['letzte_aktion'] = time();
 }
 
-$pdo = new PDO('sqlite:' . NL_DB, null, null, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+$login_fehler = '';
 
-// ---- Aktionen ---------------------------------------------------------------
+if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST'
+    && (string)($_POST['aktion'] ?? '') === 'login' && !$angemeldet) {
+
+    $pdo->prepare('DELETE FROM login_versuche WHERE ts < ?')
+        ->execute([time() - SPERRE_FENSTER_S]);
+    $stmt = $pdo->prepare('SELECT COUNT(*) FROM login_versuche WHERE ip_hash = ?');
+    $stmt->execute([$ip_hash]);
+
+    if ((int)$stmt->fetchColumn() >= SPERRE_VERSUCHE) {
+        $login_fehler = 'Zu viele Fehlversuche – bitte in einer Viertelstunde noch einmal.';
+    } elseif (password_verify((string)($_POST['passwort'] ?? ''), (string)$cfg['pass_hash'])) {
+        session_regenerate_id(true);
+        $_SESSION['angemeldet']    = true;
+        $_SESSION['letzte_aktion'] = time();
+        $_SESSION['csrf']          = bin2hex(random_bytes(32));
+        $pdo->prepare('DELETE FROM login_versuche WHERE ip_hash = ?')->execute([$ip_hash]);
+        header('Location: verwaltung', true, 303);
+        exit;
+    } else {
+        $pdo->prepare('INSERT INTO login_versuche (ip_hash, ts) VALUES (?, ?)')
+            ->execute([$ip_hash, time()]);
+        $login_fehler = 'Falsches Passwort.';
+    }
+}
+
+if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST'
+    && (string)($_POST['aktion'] ?? '') === 'logout' && $angemeldet) {
+    session_unset();
+    session_destroy();
+    header('Location: verwaltung', true, 303);
+    exit;
+}
+
+// ---- Loginformular ----------------------------------------------------------------
+
+if (!$angemeldet) {
+    http_response_code(200);
+    ?>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Anmeldung – Kulturort Admiralbrücke</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Space Grotesk", "Helvetica Neue", sans-serif;
+    background: #0b0b0f; color: #f2f1f4;
+    min-height: 100svh;
+    display: grid; place-items: center;
+    padding: 1.5rem;
+  }
+  .karte {
+    width: 100%; max-width: 24rem;
+    border: 1px solid #26252e; background: #131318;
+    padding: 2.4rem 2.2rem 2.2rem;
+  }
+  .marke {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: #9a98a3; margin-bottom: 1.2rem;
+  }
+  h1 {
+    font-family: "Bricolage Grotesque", sans-serif; font-weight: 800;
+    font-size: 1.9rem; text-transform: uppercase; line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  h1 em { font-style: normal; color: #d9ff4b; }
+  .hinweis { font-size: 0.88rem; color: #9a98a3; margin-bottom: 1.8rem; }
+  label {
+    display: block; font-family: "IBM Plex Mono", monospace;
+    font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: #9a98a3; margin-bottom: 0.45rem;
+  }
+  input[type="password"] {
+    width: 100%; font: inherit; font-size: 1.05rem; color: #f2f1f4;
+    background: #0b0b0f; border: 1px solid #26252e; padding: 0.75em 0.9em;
+  }
+  input[type="password"]:focus-visible { outline: 2px solid #d9ff4b; border-color: #d9ff4b; }
+  button {
+    width: 100%; margin-top: 1.2rem; cursor: pointer;
+    font-family: "Bricolage Grotesque", sans-serif; font-weight: 800;
+    font-size: 1rem; text-transform: uppercase; letter-spacing: 0.04em;
+    color: #0b0b0f; background: #d9ff4b; border: 0; padding: 0.85em;
+  }
+  button:hover { background: #8b5cf6; color: #f2f1f4; }
+  .fehler {
+    border: 1px solid #ff7a6e; color: #ff7a6e;
+    font-size: 0.9rem; padding: 0.7rem 0.9rem; margin-bottom: 1.2rem;
+  }
+  .zurueck { margin-top: 1.6rem; font-size: 0.82rem; }
+  .zurueck a { color: #a78bfa; }
+</style>
+</head>
+<body>
+  <main class="karte">
+    <p class="marke">Kulturort Admiralbrücke</p>
+    <h1>Verwal<em>tung</em></h1>
+    <p class="hinweis">Interner Bereich der D-Jam-Gemeinschaft.</p>
+    <?php if ($login_fehler !== ''): ?>
+      <p class="fehler"><?= e($login_fehler) ?></p>
+    <?php endif; ?>
+    <form method="post" action="verwaltung">
+      <input type="hidden" name="aktion" value="login">
+      <label for="passwort">Passwort</label>
+      <input type="password" id="passwort" name="passwort"
+             autocomplete="current-password" autofocus required>
+      <button type="submit">Anmelden</button>
+    </form>
+    <p class="zurueck"><a href="/">Zurück zur Seite</a></p>
+  </main>
+</body>
+</html>
+    <?php
+    exit;
+}
+
+// ---- Ab hier: angemeldet ------------------------------------------------------------
+
+$csrf = (string)$_SESSION['csrf'];
+
+function csrf_pruefen(string $csrf): void {
+    if (!hash_equals($csrf, (string)($_POST['csrf'] ?? ''))) {
+        http_response_code(403);
+        exit('Ungültiges Formular-Token, bitte Seite neu laden.');
+    }
+}
 
 $meldung = '';
 
@@ -145,6 +292,8 @@ $historie = $pdo->query('SELECT ts, betreff, empfaenger FROM versand ORDER BY id
     padding: 2.5rem clamp(1rem, 4vw, 4rem);
     line-height: 1.6;
   }
+  .kopfzeile { display: flex; justify-content: space-between; align-items: baseline;
+               flex-wrap: wrap; gap: 1rem; }
   h1 { font-size: 1.6rem; text-transform: uppercase; margin-bottom: 0.3rem; }
   h1 em { font-style: normal; color: #d9ff4b; }
   h2 { font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.04em;
@@ -174,14 +323,25 @@ $historie = $pdo->query('SELECT ts, betreff, empfaenger FROM versand ORDER BY id
   }
   button.klein { padding: 0.15em 0.7em; margin: 0; font-size: 0.75rem;
                  background: transparent; color: #ff7a6e; border: 1px solid #ff7a6e; }
+  button.neutral { background: transparent; color: #9a98a3; border: 1px solid #26252e;
+                   margin: 0; padding: 0.35em 1em; font-size: 0.8rem; }
+  button.neutral:hover { color: #f2f1f4; border-color: #9a98a3; }
   a { color: #a78bfa; }
   .haken { margin-top: 1rem; font-size: 0.95rem; color: #f2f1f4;
            text-transform: none; letter-spacing: 0; display: flex; gap: 0.5rem; }
 </style>
 </head>
 <body>
-  <h1>Newsletter-<em>Verwaltung</em></h1>
-  <p class="hinweis">Kulturort Admiralbrücke · nur für die D-Jam-Gemeinschaft</p>
+  <div class="kopfzeile">
+    <div>
+      <h1>Newsletter-<em>Verwaltung</em></h1>
+      <p class="hinweis">Kulturort Admiralbrücke · nur für die D-Jam-Gemeinschaft</p>
+    </div>
+    <form method="post" action="verwaltung">
+      <input type="hidden" name="aktion" value="logout">
+      <button class="neutral" type="submit">Abmelden</button>
+    </form>
+  </div>
 
   <?php if ($meldung !== ''): ?>
     <p class="meldung"><?= e($meldung) ?></p>

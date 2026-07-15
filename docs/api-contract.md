@@ -108,11 +108,22 @@ Unbekannter Token ⇒ ebenfalls `abgemeldet` (idempotent, kein Oracle).
 
 ### /verwaltung.php (Admin, nicht öffentlich verlinkt)
 
-HTTP Basic Auth (Nutzer `djam`, `password_hash` in
-`~/kulturort-newsletter/config.php`, Vergleich `password_verify`).
-Funktionen: Abonnentenliste mit Status, CSV-Export der bestätigten
-Adressen, Abonnent löschen, Newsletter (Betreff + Text) an alle
-`confirmed` senden – jede Mail mit individuellem Abmeldelink und
+Session-Login mit eigenem Formular (kein HTTP Basic):
+- Passwortabgleich per `password_verify` gegen `pass_hash` aus
+  `~/kulturort-newsletter/config.php`; nur ein Passwortfeld, kein
+  Nutzername.
+- Session-Cookie `kulturort_session`: `Secure`, `HttpOnly`,
+  `SameSite=Lax`, `use_strict_mode`; `session_regenerate_id` nach
+  Login; Idle-Timeout 4 h; Logout-Button (POST).
+- Brute-Force-Bremse: fehlgeschlagene Versuche pro IP-Tages-Hash in
+  Tabelle `login_versuche(ip_hash, ts)`; ab 8 Fehlversuchen in 15
+  Minuten wird der Login verweigert (HTTP 429-Verhalten im Formular).
+  Erfolgreicher Login löscht die Zähler der IP.
+- Nicht angemeldet ⇒ Loginformular (HTTP 200), keine Inhalte.
+
+Funktionen wie gehabt: Abonnentenliste mit Status, CSV-Export der
+bestätigten Adressen, Abonnent löschen, Newsletter (Betreff + Text) an
+alle `confirmed` – jede Mail mit individuellem Abmeldelink und
 `List-Unsubscribe`-Header. Schreibende Aktionen nur per POST mit
-CSRF-Token (`hash_hmac(sha256, Datum, secret)`); Versandhistorie in
-Tabelle `versand(ts, betreff, empfaenger)`.
+CSRF-Token aus der Session (`random_bytes`, `hash_equals`);
+Versandhistorie in Tabelle `versand(ts, betreff, empfaenger)`.
