@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /verwaltung
+Disallow: /verwaltung.php
+
+Sitemap: https://kulturort-admiralbruecke.de/sitemap.xml
