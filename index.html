@@ -9,10 +9,10 @@
 <meta property="og:description" content="Die D-Jam: ein offenes Musizieren aus 14 Nationen auf der Admiralbrücke in Berlin-Kreuzberg. Jeden Dienstag, als Versammlung angemeldet.">
 <meta property="og:image" content="https://datanoisetv.github.io/kulturort-admiralbruecke/assets/img/blaue-stunde.jpg">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23E4491F'/%3E%3Cpath d='M14 46 Q32 30 50 46' stroke='%23EFE6D4' stroke-width='5' fill='none'/%3E%3Crect x='12' y='44' width='6' height='8' fill='%23EFE6D4'/%3E%3Crect x='46' y='44' width='6' height='8' fill='%23EFE6D4'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230B0B0F'/%3E%3Cpath d='M12 46 Q32 28 52 46' stroke='%23D9FF4B' stroke-width='5' fill='none'/%3E%3Crect x='10' y='44' width='5' height='9' fill='%238B5CF6'/%3E%3Crect x='49' y='44' width='5' height='9' fill='%238B5CF6'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -32,243 +32,206 @@
 
 <main>
 
-  <!-- Hero -->
-  <section class="buehne">
-    <div class="buehne__bild">
-      <img src="assets/img/blaue-stunde.jpg" alt="Musikerinnen und Musiker in der blauen Stunde auf der Admiralbrücke, Gitarren und Gesang unter Straßenlaternen" fetchpriority="high">
+  <!-- Plakat / Hero -->
+  <section class="plakat">
+    <div class="plakat__bild foto" aria-hidden="true">
+      <img src="assets/img/blaue-stunde.jpg" alt="" fetchpriority="high">
     </div>
-    <div class="buehne__stempel">
-      <span class="stempel">
-        <span class="de">Jeden Dienstag – als Versammlung angemeldet</span>
-        <span class="en" lang="en">Every Tuesday – registered as an assembly</span>
-      </span>
-    </div>
-    <div class="buehne__inhalt">
-      <p class="buehne__eyebrow eyebrow">Berlin-Kreuzberg · Landwehrkanal</p>
-      <h1>
-        <span class="zeile">Kulturort</span>
-        <span class="zeile zeile--kontur">Admiral&shy;brücke</span>
+    <div class="plakat__inhalt">
+      <p class="plakat__eyebrow eyebrow">Berlin-Kreuzberg · Landwehrkanal</p>
+      <h1 class="plakat__titel">
+        <span class="wort wort--kultur">Kultur</span>
+        <span class="wort wort--ort">Ort</span>
+        <span class="wort wort--bruecke">Admiralbrücke</span>
       </h1>
-      <p class="buehne__unterzeile">
+      <p class="plakat__unterzeile">
         <span class="de"><strong>Musik als verbindende Sprache.</strong>
         Ein offenes Musizieren für alle – jung und alt, zuhörend, mitspielend, tanzend.
-        Seit Jahren, mitten in Kreuzberg, zwischen Wasser und Abendsonne.</span>
+        Seit Jahren, mitten in Kreuzberg.</span>
         <span class="en" lang="en"><strong>Music as a language that connects.</strong>
         Open music-making for everyone – young and old, listening, playing along, dancing.
-        For years, in the middle of Kreuzberg, between the water and the evening sun.</span>
+        For years, in the middle of Kreuzberg.</span>
       </p>
+      <p class="plakat__vermerk">
+        <span class="de">[ als Versammlung angemeldet ]</span>
+        <span class="en" lang="en">[ registered as an assembly ]</span>
+      </p>
+    </div>
+    <div class="ticker ticker--acid" aria-hidden="true">
+      <div class="ticker__spur">
+        <span class="de">D-Jam — jeden Dienstag — Admiralbrücke — am frühen Abend — alle willkommen — </span>
+        <span class="de">D-Jam — jeden Dienstag — Admiralbrücke — am frühen Abend — alle willkommen — </span>
+        <span class="en" lang="en">D-Jam — every Tuesday — Admiralbrücke — early evening — everyone welcome — </span>
+        <span class="en" lang="en">D-Jam — every Tuesday — Admiralbrücke — early evening — everyone welcome — </span>
+      </div>
     </div>
   </section>
 
   <!-- Nationen-Laufband -->
-  <div class="laufband" aria-label="Vierzehn Nationen musizieren hier zusammen">
-    <div class="laufband__spur">
-      <ul class="de">
-        <li>Argentinien</li><li>Mexiko</li><li>Türkei</li><li>USA</li><li>Jemen</li>
-        <li>Norwegen</li><li>Panama</li><li>Schweiz</li><li>Spanien</li><li>Chile</li>
-        <li>Iran</li><li>Kolumbien</li><li>Libanon</li><li>Deutschland</li>
-      </ul>
-      <ul class="de" aria-hidden="true">
-        <li>Argentinien</li><li>Mexiko</li><li>Türkei</li><li>USA</li><li>Jemen</li>
-        <li>Norwegen</li><li>Panama</li><li>Schweiz</li><li>Spanien</li><li>Chile</li>
-        <li>Iran</li><li>Kolumbien</li><li>Libanon</li><li>Deutschland</li>
-      </ul>
-      <ul class="en" lang="en">
-        <li>Argentina</li><li>Mexico</li><li>Turkey</li><li>USA</li><li>Yemen</li>
-        <li>Norway</li><li>Panama</li><li>Switzerland</li><li>Spain</li><li>Chile</li>
-        <li>Iran</li><li>Colombia</li><li>Lebanon</li><li>Germany</li>
-      </ul>
-      <ul class="en" lang="en" aria-hidden="true">
-        <li>Argentina</li><li>Mexico</li><li>Turkey</li><li>USA</li><li>Yemen</li>
-        <li>Norway</li><li>Panama</li><li>Switzerland</li><li>Spain</li><li>Chile</li>
-        <li>Iran</li><li>Colombia</li><li>Lebanon</li><li>Germany</li>
-      </ul>
+  <div class="ticker ticker--nationen" aria-label="Vierzehn Nationen musizieren hier zusammen">
+    <div class="ticker__spur ticker__spur--zurueck">
+      <span class="de">Argentinien · Mexiko · Türkei · USA · Jemen · Norwegen · Panama · Schweiz · Spanien · Chile · Iran · Kolumbien · Libanon · Deutschland · </span>
+      <span class="de" aria-hidden="true">Argentinien · Mexiko · Türkei · USA · Jemen · Norwegen · Panama · Schweiz · Spanien · Chile · Iran · Kolumbien · Libanon · Deutschland · </span>
+      <span class="en" lang="en">Argentina · Mexico · Turkey · USA · Yemen · Norway · Panama · Switzerland · Spain · Chile · Iran · Colombia · Lebanon · Germany · </span>
+      <span class="en" lang="en" aria-hidden="true">Argentina · Mexico · Turkey · USA · Yemen · Norway · Panama · Switzerland · Spain · Chile · Iran · Colombia · Lebanon · Germany · </span>
     </div>
   </div>
 
-  <!-- Der Ort -->
-  <section class="abschnitt ort" id="ort">
-    <div class="abschnitt__kopf">
-      <span class="stempel stempel--gedreht">
-        <span class="de">Der Ort</span><span class="en" lang="en">The place</span>
-      </span>
+  <!-- 01 Der Ort -->
+  <section class="abschnitt ort" id="ort" data-nr="01">
+    <div class="abschnitt__innen">
       <h2>
-        <span class="de">Eine Brücke ist zum Überqueren da. Diese hier ist zum Bleiben.</span>
-        <span class="en" lang="en">A bridge is for crossing. This one is for staying.</span>
+        <span class="de">Eine Brücke ist zum Überqueren da. <em>Diese hier ist zum Bleiben.</em></span>
+        <span class="en" lang="en">A bridge is for crossing. <em>This one is for staying.</em></span>
       </h2>
-    </div>
-    <div class="ort__raster">
-      <div class="ort__text">
-        <div class="de">
-          <p class="anfang">
-            Die Admiralbrücke steht sinnbildlich wie historisch für das Überwinden von
-            Gegensätzen – für Begegnung und Verständigung. Verkehrsberuhigt, mit
-            Sitzpollern, Wasser und Abendsonne, umgeben vom ständigen Treiben dieses
-            Knotenpunkts, ist sie seit Jahren einer der ganz wenigen Orte der Stadt,
-            an denen man einfach verweilen, Menschen kennenlernen und Freude teilen kann.
+      <div class="ort__raster">
+        <div class="ort__text">
+          <div class="de">
+            <p>
+              Die Admiralbrücke steht sinnbildlich wie historisch für das Überwinden von
+              Gegensätzen – für Begegnung und Verständigung. Verkehrsberuhigt, mit
+              Sitzpollern, Wasser und Abendsonne, umgeben vom ständigen Treiben dieses
+              Knotenpunkts, ist sie seit Jahren einer der ganz wenigen Orte der Stadt,
+              an denen man einfach verweilen, Menschen kennenlernen und Freude teilen kann.
+            </p>
+            <p>
+              Die Menschen wechseln, unter den Zuhörenden wie unter den Musizierenden –
+              es ist ein Kommen und Gehen mit immer wieder überraschenden Momenten:
+              Kinder tanzen, staunen, bekommen ein Instrument in die Hand. Jemand fängt
+              an zu rappen, nur für ein Lied. Eine Frau kommt dazu und singt, man
+              begleitet sie. Alle verstehen diese Sprache – auch und besonders die Kinder.
+            </p>
+          </div>
+          <div class="en" lang="en">
+            <p>
+              Symbolically and historically, the Admiralbrücke stands for overcoming
+              divides – for encounter and understanding. Traffic-calmed, with bollards
+              to sit on, water and evening sun, surrounded by the constant bustle of
+              this crossing point, it has been one of the very few places in the city
+              where you can simply linger, meet people and share joy.
+            </p>
+            <p>
+              People come and go, among the listeners as among the musicians – with
+              surprising moments again and again: children dance, marvel, get handed an
+              instrument. Someone starts rapping, just for one song. A woman joins in
+              and sings, and the circle accompanies her. Everyone understands this
+              language – especially the children.
+            </p>
+          </div>
+          <p class="merkmale de" aria-label="Was diesen Ort ausmacht">
+            verkehrsberuhigt / wasser + abendsonne / sitzpoller /
+            kioske, eisdiele, pizzeria / öffentliche toilette / ständiges flanieren
           </p>
-          <p>
-            Die Menschen wechseln, unter den Zuhörenden wie unter den Musizierenden –
-            es ist ein Kommen und Gehen mit immer wieder überraschenden Momenten:
-            Kinder tanzen, staunen, bekommen ein Instrument in die Hand. Jemand fängt
-            an zu rappen, nur für ein Lied. Eine Frau kommt dazu und singt, man
-            begleitet sie. Alle verstehen diese Sprache – auch und besonders die Kinder.
-          </p>
-        </div>
-        <div class="en" lang="en">
-          <p class="anfang">
-            Symbolically and historically, the Admiralbrücke stands for overcoming
-            divides – for encounter and understanding. Traffic-calmed, with bollards
-            to sit on, water and evening sun, surrounded by the constant bustle of
-            this crossing point, it has been one of the very few places in the city
-            where you can simply linger, meet people and share joy.
-          </p>
-          <p>
-            People come and go, among the listeners as among the musicians – with
-            surprising moments again and again: children dance, marvel, get handed an
-            instrument. Someone starts rapping, just for one song. A woman joins in
-            and sings, and the circle accompanies her. Everyone understands this
-            language – especially the children.
-          </p>
-        </div>
-        <ul class="ort__gruende de" aria-label="Was diesen Ort ausmacht">
-          <li>Verkehrsberuhigt</li>
-          <li>Wasser und Abendsonne</li>
-          <li>Viele Sitzmöglichkeiten</li>
-          <li>Kioske, Eisdiele, Pizzeria</li>
-          <li>Öffentliche Toilette</li>
-          <li>Ständiges Flanieren</li>
-        </ul>
-        <ul class="ort__gruende en" lang="en" aria-label="What makes this place">
-          <li>Traffic-calmed</li>
-          <li>Water and evening sun</li>
-          <li>Plenty of places to sit</li>
-          <li>Kiosks, ice cream, pizza</li>
-          <li>Public toilet</li>
-          <li>Constant strolling</li>
-        </ul>
-      </div>
-      <figure class="ort__bild">
-        <img src="assets/img/geige-kanal.jpg" alt="Eine Geigerin singt mit geschlossenen Augen am Ufer des Landwehrkanals" loading="lazy">
-      </figure>
-    </div>
-  </section>
-
-  <!-- D-Jam -->
-  <section class="abschnitt djam" id="djam">
-    <div class="abschnitt__kopf">
-      <span class="stempel stempel--gedreht">
-        <span class="de">Dienstags auf der Brücke</span><span class="en" lang="en">Tuesdays on the bridge</span>
-      </span>
-      <h2>
-        <span class="de">D-Jam: Vierzehn Nationen, ein Rhythmus.</span>
-        <span class="en" lang="en">D-Jam: Fourteen nations, one rhythm.</span>
-      </h2>
-      <p class="djam__englisch" lang="en">An open jam. All ages, all levels, all languages.
-      Bring an instrument – or just yourself.</p>
-    </div>
-    <div class="djam__raster">
-      <div class="djam__text">
-        <div class="de">
-          <p>
-            Die D-Jam ist ein gemeinschaftliches Musizieren in moderater Lautstärke,
-            in das alle Menschen am Ort einbezogen werden – durch Zuhören, Mitwirken,
-            Kontakteknüpfen, Tanzen, Genießen. Musiker und Musikerinnen aus vierzehn
-            Nationen, aus Ost und West, Nord und Süd, kommen hier regelmäßig zusammen,
-            um Gemeinsamkeit zu erleben und Lebendigkeit in die Welt zu tragen.
-          </p>
-          <p>
-            Das in Zeiten des Krieges, der gesellschaftlichen Verhärtungen, der
-            sozialen Verarmung. Es hat sich gezeigt: Musik ist unser aller Sprache,
-            durch die Menschen in Kontakt treten können – direkt, menschlich, respektvoll.
+          <p class="merkmale en" lang="en" aria-label="What makes this place">
+            traffic-calmed / water + evening sun / bollards to sit on /
+            kiosks, ice cream, pizza / public toilet / constant strolling
           </p>
         </div>
-        <div class="en" lang="en">
-          <p>
-            The D-Jam is communal music-making at moderate volume that draws in
-            everyone around – through listening, joining in, making contact, dancing,
-            enjoying. Musicians from fourteen nations, from East and West, North and
-            South, come together here regularly to experience community and carry
-            liveliness into the world.
-          </p>
-          <p>
-            And that in times of war, of social hardening, of social impoverishment.
-            One thing has become clear: music is everyone's language, a way for
-            people to connect – directly, humanly, respectfully.
-          </p>
-        </div>
-        <ul class="djam__fakten de" aria-label="Die D-Jam in Kürze">
-          <li>Alle Altersgruppen</li>
-          <li>Moderate Lautstärke</li>
-          <li>Offen für alle</li>
-          <li>Handgemachte Musik</li>
-        </ul>
-        <ul class="djam__fakten en" lang="en" aria-label="The D-Jam in short">
-          <li>All ages</li>
-          <li>Moderate volume</li>
-          <li>Open to everyone</li>
-          <li>Handmade music</li>
-        </ul>
-      </div>
-      <div class="djam__bilder">
-        <figure>
-          <img src="assets/img/come-together.jpg" alt="Große Jam-Runde auf dem Kopfsteinpflaster der Brücke, vorne ein handgemaltes Schild mit der Aufschrift Come Together" loading="lazy">
-        </figure>
-        <figure>
-          <img src="assets/img/gitarre.jpg" alt="Gitarrist im bunten Hemd, konzentriert beim Spielen" loading="lazy">
-        </figure>
-        <figure>
-          <img src="assets/img/geige-piano.jpg" alt="Geigerin und Keyboarder musizieren gemeinsam am Brückengeländer" loading="lazy">
+        <figure class="foto ort__bild">
+          <img src="assets/img/geige-kanal.jpg" alt="Eine Geigerin singt mit geschlossenen Augen am Ufer des Landwehrkanals" loading="lazy">
         </figure>
       </div>
     </div>
   </section>
 
-  <!-- Galerie -->
-  <section class="abschnitt galerie" id="bilder">
-    <div class="abschnitt__kopf">
-      <span class="stempel stempel--gedreht">
-        <span class="de">Bilder</span><span class="en" lang="en">Pictures</span>
-      </span>
+  <!-- 02 D-Jam -->
+  <section class="abschnitt abschnitt--rechts djam" id="djam" data-nr="02">
+    <div class="abschnitt__innen">
       <h2>
-        <span class="de">Ein Kommen und Gehen</span>
-        <span class="en" lang="en">A coming and going</span>
+        <span class="de">D-Jam: Vierzehn Nationen, <em>ein Rhythmus.</em></span>
+        <span class="en" lang="en">D-Jam: Fourteen nations, <em>one rhythm.</em></span>
       </h2>
-    </div>
-    <div class="galerie__raster">
-      <figure>
-        <img src="assets/img/session.jpg" alt="Sängerinnen und Gitarrist in einer Jam-Runde auf dem Kopfsteinpflaster" loading="lazy">
-      </figure>
-      <figure>
-        <img src="assets/img/gesang.jpg" alt="Drei Frauen singen gemeinsam, dahinter das gusseiserne Brückengeländer" loading="lazy">
-      </figure>
-      <figure>
-        <img src="assets/img/singen-lachen.jpg" alt="Lachende Sängerinnen mit Mikrofonen im Abendlicht" loading="lazy">
-      </figure>
-      <figure>
-        <img src="assets/img/begegnung.jpg" alt="Junger Musiker mit Locken und Paisleyhemd im Gespräch" loading="lazy">
-      </figure>
-      <figure>
-        <img src="assets/img/geige-kanal.jpg" alt="Geigerin singt am Kanalufer" loading="lazy">
-      </figure>
-      <figure>
-        <img src="assets/img/blaue-stunde.jpg" alt="Jam in der blauen Stunde unter Straßenlaternen" loading="lazy">
-      </figure>
+      <div class="djam__raster">
+        <div class="djam__text">
+          <p class="djam__englisch" lang="en">An open jam. All ages, all levels, all
+          languages. Bring an instrument – or just yourself.</p>
+          <div class="de">
+            <p>
+              Die D-Jam ist ein gemeinschaftliches Musizieren in moderater Lautstärke,
+              in das alle Menschen am Ort einbezogen werden – durch Zuhören, Mitwirken,
+              Kontakteknüpfen, Tanzen, Genießen. Musiker und Musikerinnen aus vierzehn
+              Nationen, aus Ost und West, Nord und Süd, kommen hier regelmäßig zusammen,
+              um Gemeinsamkeit zu erleben und Lebendigkeit in die Welt zu tragen.
+            </p>
+            <p>
+              Das in Zeiten des Krieges, der gesellschaftlichen Verhärtungen, der
+              sozialen Verarmung. Es hat sich gezeigt: Musik ist unser aller Sprache,
+              durch die Menschen in Kontakt treten können – direkt, menschlich, respektvoll.
+            </p>
+          </div>
+          <div class="en" lang="en">
+            <p>
+              The D-Jam is communal music-making at moderate volume that draws in
+              everyone around – through listening, joining in, making contact, dancing,
+              enjoying. Musicians from fourteen nations, from East and West, North and
+              South, come together here regularly to experience community and carry
+              liveliness into the world.
+            </p>
+            <p>
+              And that in times of war, of social hardening, of social impoverishment.
+              One thing has become clear: music is everyone's language, a way for
+              people to connect – directly, humanly, respectfully.
+            </p>
+          </div>
+          <p class="merkmale de" aria-label="Die D-Jam in Kürze">
+            alle altersgruppen / moderate lautstärke / offen für alle / handgemachte musik
+          </p>
+          <p class="merkmale en" lang="en" aria-label="The D-Jam in short">
+            all ages / moderate volume / open to everyone / handmade music
+          </p>
+        </div>
+        <div class="djam__bilder">
+          <figure class="foto">
+            <img src="assets/img/come-together.jpg" alt="Große Jam-Runde auf dem Kopfsteinpflaster der Brücke, vorne ein handgemaltes Schild mit der Aufschrift Come Together" loading="lazy">
+          </figure>
+          <figure class="foto">
+            <img src="assets/img/gitarre.jpg" alt="Gitarrist im bunten Hemd, konzentriert beim Spielen" loading="lazy">
+          </figure>
+          <figure class="foto">
+            <img src="assets/img/geige-piano.jpg" alt="Geigerin und Keyboarder musizieren gemeinsam am Brückengeländer" loading="lazy">
+          </figure>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Chronik -->
-  <section class="abschnitt chronik" id="chronik">
-    <div class="chronik__innen">
-      <div class="abschnitt__kopf">
-        <span class="stempel stempel--gedreht">
-          <span class="de">Chronik</span><span class="en" lang="en">History</span>
-        </span>
-        <h2>
-          <span class="de">Mediation, Lärmomat, 22-Uhr-Regel: alles schon versucht.</span>
-          <span class="en" lang="en">Mediation, noise meter, 10 p.m. rule: all been tried.</span>
-        </h2>
+  <!-- 03 Bilder -->
+  <section class="abschnitt bilder" id="bilder" data-nr="03">
+    <div class="abschnitt__innen">
+      <h2>
+        <span class="de">Ein <em>Kommen</em> und <em>Gehen</em></span>
+        <span class="en" lang="en">A <em>coming</em> and <em>going</em></span>
+      </h2>
+      <div class="bilder__raster">
+        <figure class="foto">
+          <img src="assets/img/session.jpg" alt="Sängerinnen und Gitarrist in einer Jam-Runde auf dem Kopfsteinpflaster" loading="lazy">
+        </figure>
+        <figure class="foto">
+          <img src="assets/img/gesang.jpg" alt="Drei Frauen singen gemeinsam, dahinter das gusseiserne Brückengeländer" loading="lazy">
+        </figure>
+        <figure class="foto">
+          <img src="assets/img/singen-lachen.jpg" alt="Lachende Sängerinnen mit Mikrofonen im Abendlicht" loading="lazy">
+        </figure>
+        <figure class="foto">
+          <img src="assets/img/begegnung.jpg" alt="Junger Musiker mit Locken und Paisleyhemd im Gespräch" loading="lazy">
+        </figure>
+        <figure class="foto">
+          <img src="assets/img/geige-kanal.jpg" alt="Geigerin singt am Kanalufer" loading="lazy">
+        </figure>
+        <figure class="foto">
+          <img src="assets/img/blaue-stunde.jpg" alt="Jam in der blauen Stunde unter Straßenlaternen" loading="lazy">
+        </figure>
       </div>
+    </div>
+  </section>
+
+  <!-- 04 Chronik -->
+  <section class="abschnitt abschnitt--rechts chronik" id="chronik" data-nr="04">
+    <div class="abschnitt__innen">
+      <h2>
+        <span class="de">Mediation, Lärmomat, 22-Uhr-Regel: <em>alles schon versucht.</em></span>
+        <span class="en" lang="en">Mediation, noise meter, 10 p.m. rule: <em>all been tried.</em></span>
+      </h2>
       <p class="chronik__intro">
         <span class="de">Der Streit um die Brücke ist viel älter als die D-Jam. Seit
         bald zwanzig Jahren probiert die Stadt Antworten auf dieselbe Frage aus – und
@@ -291,7 +254,7 @@
           </div>
         </li>
         <li>
-          <span class="zeitleiste__jahr">1990er</span>
+          <span class="zeitleiste__jahr"><span class="de">1990er</span><span class="en" lang="en">1990s</span></span>
           <div class="zeitleiste__text">
             <span class="de">Der Bezirk sperrt die Brücke mit Pollern für den
             Durchgangsverkehr. Die Verkehrsberuhigung macht sie erst zu dem
@@ -311,7 +274,7 @@
           </div>
         </li>
         <li>
-          <span class="zeitleiste__jahr">2008–2009</span>
+          <span class="zeitleiste__jahr">2008</span>
           <div class="zeitleiste__text">
             <span class="de">An Sommerabenden sitzen bis zu 250 Menschen auf der
             Brücke. Erste Beschwerden, eine Anwohnerinitiative gründet sich. Eine
@@ -322,11 +285,11 @@
             assembly agrees on a compromise – the traffic calming stays.</span>
           </div>
         </li>
-        <li>
+        <li class="zeitleiste__eingriff">
           <span class="zeitleiste__jahr">2010</span>
           <div class="zeitleiste__text">
-            <span class="de">Senatsfinanzierte Mediation direkt auf der Brücke,
-            dreimal pro Woche. Im August eskaliert ein Einsatz: rund hundert
+            <span class="de">Senatsfinanzierte Mediatoren arbeiten direkt auf der
+            Brücke, dreimal pro Woche. Im August eskaliert ein Einsatz: rund hundert
             Polizisten räumen die Brücke, tags darauf kommt der Regierende
             Bürgermeister persönlich vorbei. Seitdem gilt die Praxis: um 22 Uhr ist
             Schluss.</span>
@@ -337,7 +300,7 @@
             over.</span>
           </div>
         </li>
-        <li class="hervorgehoben">
+        <li class="zeitleiste__eingriff">
           <span class="zeitleiste__jahr">2023</span>
           <div class="zeitleiste__text">
             <span class="de">Der Bezirk stellt den „Lärmomat“ auf: eine Mooswand mit
@@ -350,7 +313,7 @@
             "the police came every evening anyway".</span>
           </div>
         </li>
-        <li class="hervorgehoben">
+        <li class="zeitleiste__eingriff">
           <span class="zeitleiste__jahr">2024</span>
           <div class="zeitleiste__text">
             <span class="de">Bilanz des Bezirksamts nach drei Monaten Lärmomat: 63
@@ -361,7 +324,7 @@
             The project is ended, the device removed.</span>
           </div>
         </li>
-        <li>
+        <li class="zeitleiste__eingriff">
           <span class="zeitleiste__jahr">2026</span>
           <div class="zeitleiste__text">
             <span class="de">Jam-Sessions werden regelmäßig polizeilich beendet; im
@@ -387,124 +350,123 @@
     </div>
   </section>
 
-  <!-- Aufruf -->
-  <section class="abschnitt aufruf" id="aufruf">
-    <div class="abschnitt__kopf">
-      <span class="stempel stempel--gedreht">
-        <span class="de">Aufruf</span><span class="en" lang="en">Call for support</span>
-      </span>
-      <h2>
-        <span class="de">Wir wollen keinen Streit. Wir wollen spielen.</span>
-        <span class="en" lang="en">We don't want a fight. We want to play.</span>
-      </h2>
-    </div>
-    <div class="aufruf__raster">
-      <div class="aufruf__lage">
-        <div class="de">
-          <p>
-            Vier bis fünf Anwohner eines benachbarten Hauses – so sagt es die Polizei –
-            haben sich für einen Kampf gegen die Musik entschieden. Regelmäßig, oft schon
-            am Nachmittag, wird die Polizei gerufen und eine Anzeige verlangt. Das führt
-            zum Abbruch der Musik, manchmal zur Räumung der Brücke, zu Festnahmen und
-            angedrohter Konfiszierung von Instrumenten.
-          </p>
-          <p>
-            Aus Gesprächen mit der Polizei wird deutlich: <strong>Die Lautstärke ist nicht
-            das Problem.</strong> Die Einsatzkräfte reagieren auf die wiederholten Anrufe
-            immer derselben wenigen Personen. Gesprächsbereitschaft, die eine friedliche
-            Lösung erst möglich machen würde, gibt es von dieser Seite bislang nicht.
-          </p>
-          <p>
-            Deshalb melden wir unsere Musik inzwischen jede Woche als Versammlung an –
-            Kultur unter Demonstrationsschutz. Die Admiralbrücke war immer ein Ort der
-            darstellenden Kunst. Wir möchten, dass sie es bleibt: friedlich, gemeinsam,
-            für alle.
-          </p>
+  <!-- 05 Aufruf -->
+  <section class="abschnitt aufruf" id="aufruf" data-nr="05">
+    <div class="abschnitt__innen">
+      <div class="aufruf__block">
+        <h2>
+          <span class="de">Wir wollen keinen Streit. <em>Wir wollen spielen.</em></span>
+          <span class="en" lang="en">We don't want a fight. <em>We want to play.</em></span>
+        </h2>
+        <div class="aufruf__raster">
+          <div class="aufruf__lage">
+            <div class="de">
+              <p>
+                Vier bis fünf Anwohner eines benachbarten Hauses – so sagt es die Polizei –
+                haben sich für einen Kampf gegen die Musik entschieden. Regelmäßig, oft schon
+                am Nachmittag, wird die Polizei gerufen und eine Anzeige verlangt. Das führt
+                zum Abbruch der Musik, manchmal zur Räumung der Brücke, zu Festnahmen und
+                angedrohter Konfiszierung von Instrumenten.
+              </p>
+              <p>
+                Aus Gesprächen mit der Polizei wird deutlich: <strong>Die Lautstärke ist nicht
+                das Problem.</strong> Die Einsatzkräfte reagieren auf die wiederholten Anrufe
+                immer derselben wenigen Personen. Gesprächsbereitschaft, die eine friedliche
+                Lösung erst möglich machen würde, gibt es von dieser Seite bislang nicht.
+              </p>
+              <p>
+                Deshalb melden wir unsere Musik inzwischen jede Woche als Versammlung an –
+                Kultur unter Demonstrationsschutz. Die Admiralbrücke war immer ein Ort der
+                darstellenden Kunst. Wir möchten, dass sie es bleibt: friedlich, gemeinsam,
+                für alle.
+              </p>
+            </div>
+            <div class="en" lang="en">
+              <p>
+                Four to five residents of a neighbouring building – according to the police –
+                have decided to fight the music. Regularly, often as early as the afternoon,
+                the police are called and criminal complaints are demanded. The music gets
+                broken off; sometimes the bridge is cleared, people are arrested, and the
+                confiscation of instruments is threatened.
+              </p>
+              <p>
+                Conversations with the police make one thing clear: <strong>the volume is
+                not the problem.</strong> Officers are responding to repeated calls from the
+                same few people. So far there has been no willingness on that side to talk –
+                the very thing a peaceful solution would need.
+              </p>
+              <p>
+                That is why we now register our music as an assembly every week – culture
+                under the protection of the right to demonstrate. The Admiralbrücke has
+                always been a place of performing arts. We want it to stay that way:
+                peaceful, together, for everyone.
+              </p>
+            </div>
+            <div class="aufruf__wunsch">
+              <h3><span class="de">Was wir uns wünschen</span><span class="en" lang="en">What we ask for</span></h3>
+              <ul class="de">
+                <li>Einen wohlwollenden, verständnisvollen Umgang der Ordnungskräfte</li>
+                <li>Schutz vor willkürlicher Anzeigenerstattung</li>
+                <li>Die Anerkennung der Initiative als sinnstiftend und gemeinschaftsbildend –
+                    statt ihrer Einstufung als zu ahndende Ordnungswidrigkeit</li>
+                <li>Vor allem: ein Gespräch. Wir sind da.</li>
+              </ul>
+              <ul class="en" lang="en">
+                <li>Goodwill and understanding from the police on site</li>
+                <li>Protection against arbitrary criminal complaints</li>
+                <li>Recognition of the initiative as meaningful and community-building –
+                    instead of classifying it as an offence to be punished</li>
+                <li>Above all: a conversation. We are here.</li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <h3><span class="de">Was du tun kannst</span><span class="en" lang="en">What you can do</span></h3>
+            <ol class="mitmachen de">
+              <li>
+                <strong>Komm dienstags vorbei.</strong>
+                <span>Jede Person auf der Brücke zeigt, dass dieser Ort gebraucht wird –
+                zuhören genügt.</span>
+              </li>
+              <li>
+                <strong>Bring ein Instrument oder deine Stimme mit.</strong>
+                <span>Die D-Jam ist offen. Shaker, Rassel, ein Lied – alles zählt.</span>
+              </li>
+              <li>
+                <strong>Wende dich an die Bezirkspolitik.</strong>
+                <span>Ein Antrag liegt dem Kulturausschuss der BVV Friedrichshain-Kreuzberg
+                vor. Unterstützung aus der Nachbarschaft gibt ihm Gewicht.</span>
+              </li>
+              <li>
+                <strong>Erzähl davon.</strong>
+                <span>Teile die Geschichte der Brücke – mit Nachbarn, Freundinnen, der Presse.
+                Öffentlichkeit schützt.</span>
+              </li>
+            </ol>
+            <ol class="mitmachen en" lang="en">
+              <li>
+                <strong>Come by on a Tuesday.</strong>
+                <span>Every person on the bridge shows this place is needed –
+                listening is enough.</span>
+              </li>
+              <li>
+                <strong>Bring an instrument or your voice.</strong>
+                <span>The D-Jam is open. A shaker, a rattle, one song – everything counts.</span>
+              </li>
+              <li>
+                <strong>Contact district politics.</strong>
+                <span>An application is before the culture committee of the
+                Friedrichshain-Kreuzberg district assembly (BVV). Support from the
+                neighbourhood gives it weight.</span>
+              </li>
+              <li>
+                <strong>Tell people about it.</strong>
+                <span>Share the story of the bridge – with neighbours, friends, the press.
+                Publicity protects.</span>
+              </li>
+            </ol>
+          </div>
         </div>
-        <div class="en" lang="en">
-          <p>
-            Four to five residents of a neighbouring building – according to the police –
-            have decided to fight the music. Regularly, often as early as the afternoon,
-            the police are called and criminal complaints are demanded. The music gets
-            broken off; sometimes the bridge is cleared, people are arrested, and the
-            confiscation of instruments is threatened.
-          </p>
-          <p>
-            Conversations with the police make one thing clear: <strong>the volume is
-            not the problem.</strong> Officers are responding to repeated calls from the
-            same few people. So far there has been no willingness on that side to talk –
-            the very thing a peaceful solution would need.
-          </p>
-          <p>
-            That is why we now register our music as an assembly every week – culture
-            under the protection of the right to demonstrate. The Admiralbrücke has
-            always been a place of performing arts. We want it to stay that way:
-            peaceful, together, for everyone.
-          </p>
-        </div>
-        <div class="aufruf__wunsch">
-          <h3><span class="de">Was wir uns wünschen</span><span class="en" lang="en">What we ask for</span></h3>
-          <ul class="de">
-            <li>Einen wohlwollenden, verständnisvollen Umgang der Ordnungskräfte</li>
-            <li>Schutz vor willkürlicher Anzeigenerstattung</li>
-            <li>Die Anerkennung der Initiative als sinnstiftend und gemeinschaftsbildend –
-                statt ihrer Einstufung als zu ahndende Ordnungswidrigkeit</li>
-            <li>Vor allem: ein Gespräch. Wir sind da.</li>
-          </ul>
-          <ul class="en" lang="en">
-            <li>Goodwill and understanding from the police on site</li>
-            <li>Protection against arbitrary criminal complaints</li>
-            <li>Recognition of the initiative as meaningful and community-building –
-                instead of classifying it as an offence to be punished</li>
-            <li>Above all: a conversation. We are here.</li>
-          </ul>
-        </div>
-      </div>
-      <div>
-        <h3><span class="de">Was du tun kannst</span><span class="en" lang="en">What you can do</span></h3>
-        <ol class="mitmachen de">
-          <li>
-            <strong>Komm dienstags vorbei.</strong>
-            <span>Jede Person auf der Brücke zeigt, dass dieser Ort gebraucht wird –
-            zuhören genügt.</span>
-          </li>
-          <li>
-            <strong>Bring ein Instrument oder deine Stimme mit.</strong>
-            <span>Die D-Jam ist offen. Shaker, Rassel, ein Lied – alles zählt.</span>
-          </li>
-          <li>
-            <strong>Wende dich an die Bezirkspolitik.</strong>
-            <span>Ein Antrag liegt dem Kulturausschuss der BVV Friedrichshain-Kreuzberg
-            vor. Unterstützung aus der Nachbarschaft gibt ihm Gewicht.</span>
-          </li>
-          <li>
-            <strong>Erzähl davon.</strong>
-            <span>Teile die Geschichte der Brücke – mit Nachbarn, Freundinnen, der Presse.
-            Öffentlichkeit schützt.</span>
-          </li>
-        </ol>
-        <ol class="mitmachen en" lang="en">
-          <li>
-            <strong>Come by on a Tuesday.</strong>
-            <span>Every person on the bridge shows this place is needed –
-            listening is enough.</span>
-          </li>
-          <li>
-            <strong>Bring an instrument or your voice.</strong>
-            <span>The D-Jam is open. A shaker, a rattle, one song – everything counts.</span>
-          </li>
-          <li>
-            <strong>Contact district politics.</strong>
-            <span>An application is before the culture committee of the
-            Friedrichshain-Kreuzberg district assembly (BVV). Support from the
-            neighbourhood gives it weight.</span>
-          </li>
-          <li>
-            <strong>Tell people about it.</strong>
-            <span>Share the story of the bridge – with neighbours, friends, the press.
-            Publicity protects.</span>
-          </li>
-        </ol>
       </div>
     </div>
   </section>
@@ -523,196 +485,197 @@
     </cite>
   </section>
 
-  <!-- Dokumente -->
-  <section class="abschnitt dokumente" id="dokumente">
-    <div class="dokumente__innen">
-    <div class="abschnitt__kopf">
-      <span class="stempel stempel--gedreht">
-        <span class="de">Dokumente</span><span class="en" lang="en">Documents</span>
-      </span>
+  <!-- 06 Dokumente -->
+  <section class="abschnitt dokumente" id="dokumente" data-nr="06">
+    <div class="abschnitt__innen">
       <h2>
-        <span class="de">Zum Nachlesen – im Wortlaut</span>
-        <span class="en" lang="en">The full texts</span>
+        <span class="de">Zum Nachlesen – <em>im Wortlaut</em></span>
+        <span class="en" lang="en">The <em>full</em> texts</span>
       </h2>
-    </div>
-    <p class="dokumente__intro">
-      <span class="de">Der Antrag an den Kulturausschuss und der Leserinnenbrief zur
-      Berichterstattung, ungekürzt.</span>
-      <span class="en" lang="en">The application to the culture committee and the letter
-      to the editor, unabridged – in the German original, each with a short English
-      summary.</span>
-    </p>
+      <p class="dokumente__intro">
+        <span class="de">Der Antrag an den Kulturausschuss und der Leserinnenbrief zur
+        Berichterstattung, ungekürzt.</span>
+        <span class="en" lang="en">The application to the culture committee and the letter
+        to the editor, unabridged – in the German original, each with a short English
+        summary.</span>
+      </p>
 
-    <details class="dokument">
-      <summary>
-        <span class="de">Kulturprojekt: Admiralbrücke</span>
-        <span class="en" lang="en">Culture project: Admiralbrücke</span>
-        <span class="eyebrow">
-          <span class="de">Antrag · Kulturausschuss der BVV Friedrichshain-Kreuzberg</span>
-          <span class="en" lang="en">Application · Culture committee, BVV Friedrichshain-Kreuzberg</span>
-        </span>
-      </summary>
-      <div class="dokument__inhalt">
-        <p class="en dokument__zusammenfassung" lang="en">
-          Summary: The application asks the district culture committee to politically
-          support the regular music evenings on the Admiralbrücke as a cultural
-          project ("music as a connecting language", 14 nations, all ages, moderate
-          volume). It describes why the bridge is uniquely suited, documents that a
-          handful of neighbours repeatedly call the police although volume is not the
-          issue, and asks for goodwill from the authorities, protection from
-          arbitrary complaints, and recognition of the initiative as
-          community-building instead of an offence. The original follows in German.
-        </p>
-        <p>
-          Antrag vor dem Kulturausschuss der BVV Friedrichshain-Kreuzberg, das im
-          Folgenden dargestellte Projekt kulturpolitisch zu unterstützen und damit das
-          kulturelle Leben im Bezirk zu fördern.
-        </p>
-        <h4>Projektbeschreibung: „Musik als verbindende Sprache“</h4>
-        <p>
-          Es handelt sich um ein regelmäßig stattfindendes kulturelles Ereignis auf der
-          Admiralbrücke: ein gemeinschaftliches Musizieren in moderater Lautstärke, in
-          das alle Menschen am Ort, ob jung oder alt, miteinbezogen werden. Sei es durch
-          Zuhören, Mitwirken, Kontaktknüpfen, Tanzen, Genießen. Es hat sich gezeigt,
-          dass Musik unser aller Sprache ist, durch welche die Menschen in Kontakt
-          treten können, direkt, menschlich und respektvoll.
-        </p>
-        <p>
-          An den musikalischen Abenden kommen Menschen aller Nationen zusammen –
-          Musiker und Musikerinnen aus Argentinien, Mexiko, der Türkei, den USA, dem
-          Jemen, Norwegen, Panama, der Schweiz, Spanien, Chile, dem Iran, Kolumbien,
-          dem Libanon und Deutschland. 14 Nationen aus Ost und West, Nord und Süd
-          kommen hier regelmäßig zusammen, um Gemeinsamkeit zu erleben, Lebendigkeit
-          und Freude in die Welt zu tragen. Das in Zeiten des Krieges, der
-          gesellschaftlichen Verhärtungen, der sozialen Verarmung.
-        </p>
-        <h4>Warum gerade hier, auf der Admiralbrücke?</h4>
-        <p>Die Admiralbrücke eignet sich aus vielerlei Gründen als idealer Standpunkt:</p>
-        <ul>
-          <li>Die Brücke steht sowohl sinnbildlich als auch historisch-politisch für
-              das Überwinden von Gegensätzen, für Begegnung und Verständigung.</li>
-          <li>Die besonderen Verhältnisse durch: Verkehrsberuhigung, die vielen
-              Sitzmöglichkeiten, das Wasser und die Abendsonne, die Nähe zu Kiosken,
-              Eisdiele und Pizzerien, das Vorhandensein einer öffentlichen Toilette,
-              vorhandene große Mülleimer und die regelmäßige Entsorgung von Pfandgut,
-              das ständige Treiben und Flanieren über diesen Knotenpunkt.</li>
-        </ul>
-        <p>
-          All das macht diesen Ort attraktiv, durchlässig und kommunikativ. Die
-          Menschen wechseln, sowohl unter den Zuhörerinnen als auch unter den
-          Musizierenden – es ist ein Kommen und Gehen mit immer wieder überraschenden
-          Ereignissen: Kinder tanzen, staunen, hören gespannt zu, bekommen ein
-          Instrument in die Hand, sind Teil des Geschehens. Plötzlich fängt jemand an
-          zu singen, ein Rap, nur für ein Lied. Andere wieder bekommen
-          Rhythmusinstrumente wie Shaker oder Rassel, wieder jemand beginnt einen Tanz
-          in der Mitte, inspiriert, ungeplant. Eine Frau kommt dazu und singt, man
-          begleitet sie. Alle diese Menschen, auch und besonders die Kinder, verstehen
-          diese Sprache.
-        </p>
-        <p>
-          Die Admiralbrücke ist ein besonderer, inspirierender und seit Jahren
-          etablierter Ort zum Verweilen, Menschenkennenlernen und Freudeteilen. Leider
-          einer der ganz wenigen in unserer Stadt.
-        </p>
-        <h4>Anwohnerproblematik</h4>
-        <p>
-          Leider haben sich 4 oder 5 Anwohner eines benachbarten Hauses (so sagt es die
-          Polizei) für einen Kampf gegen die Musiker entschieden. Regelmäßig, schon am
-          Nachmittag oder frühen Abend, wird von dort aus die Polizei benachrichtigt
-          und die Erstattung einer Anzeige verlangt. Dies wiederum führt zu einem
-          Abbruch der Musik, manchmal zur Räumung der Brücke, zu Festnahmen und
-          möglicherweise zu Geldstrafen. Auch wird regelmäßig die Konfiszierung von
-          Instrumenten angedroht.
-        </p>
-        <p>
-          Aus Gesprächen mit der Polizei wird hingegen klar, dass die Lautstärke nicht
-          das Problem darstellt. Die Ordnungskräfte reagieren lediglich auf die
-          wiederholten Anrufe der hierfür schon bekannten Anwohnerschaft, bestehend aus
-          immer denselben vier bis fünf Personen, die das lebendige Geschehen in der
-          Nähe ihrer Wohnung bereits in den späten Nachmittagsstunden als gesetzwidrige
-          Ruhestörung unterbunden haben wollen. Leider gibt es von dieser Seite keine
-          Gesprächsbereitschaft oder Kontaktaufnahme, die eine friedliche Lösung unter
-          den Beteiligten erst ermöglichen würde.
-        </p>
-        <h4>Bitte an die BVV – Kulturausschuss</h4>
-        <p>
-          Um das friedliche und lebendige Miteinander im Bezirk zu erhalten, wünschen
-          wir uns eine größere öffentliche, auch kulturpolitische Wahrnehmung der
-          Situation, die wir im Privaten nicht lösen können, da die Menschen, welche
-          sich gestört fühlen (es ist auch nur eine kleine Minderheit unter den
-          Anwohnern), nicht mit uns in Verbindung treten wollen, um eine gemeinsame
-          Lösung zu finden.
-        </p>
-        <p>
-          Um die Konfrontation zwischen den Parteien zu befrieden, wünschen wir uns
-          einerseits einen wohlwollenden und verständnisvollen Umgang durch
-          Polizeikräfte, einen gewissen Schutz vor willkürlicher Anzeigeerstattung und
-          politisch den Wechsel der Perspektive von der Einstufung als eine zu ahndende
-          Ordnungswidrigkeit hin zu einer ausdrücklichen Anerkennung und Befürwortung
-          der Initiative als sinnstiftend und gemeinschaftsbildend, als ein gelungenes
-          Beispiel für ein lebendiges und buntes Kreuzberg, das wir uns alle wünschen.
-        </p>
-        <p class="unterschrift">Annette Prüfer · Musikerin</p>
-      </div>
-    </details>
+      <details class="dokument">
+        <summary>
+          <span class="dokument__titel">
+            <span class="de">Kulturprojekt: Admiralbrücke</span>
+            <span class="en" lang="en">Culture project: Admiralbrücke</span>
+          </span>
+          <span class="eyebrow">
+            <span class="de">Antrag · Kulturausschuss der BVV Friedrichshain-Kreuzberg</span>
+            <span class="en" lang="en">Application · Culture committee, BVV Friedrichshain-Kreuzberg</span>
+          </span>
+        </summary>
+        <div class="dokument__inhalt">
+          <p class="en dokument__zusammenfassung" lang="en">
+            Summary: The application asks the district culture committee to politically
+            support the regular music evenings on the Admiralbrücke as a cultural
+            project ("music as a connecting language", 14 nations, all ages, moderate
+            volume). It describes why the bridge is uniquely suited, documents that a
+            handful of neighbours repeatedly call the police although volume is not the
+            issue, and asks for goodwill from the authorities, protection from
+            arbitrary complaints, and recognition of the initiative as
+            community-building instead of an offence. The original follows in German.
+          </p>
+          <p>
+            Antrag vor dem Kulturausschuss der BVV Friedrichshain-Kreuzberg, das im
+            Folgenden dargestellte Projekt kulturpolitisch zu unterstützen und damit das
+            kulturelle Leben im Bezirk zu fördern.
+          </p>
+          <h4>Projektbeschreibung: „Musik als verbindende Sprache“</h4>
+          <p>
+            Es handelt sich um ein regelmäßig stattfindendes kulturelles Ereignis auf der
+            Admiralbrücke: ein gemeinschaftliches Musizieren in moderater Lautstärke, in
+            das alle Menschen am Ort, ob jung oder alt, miteinbezogen werden. Sei es durch
+            Zuhören, Mitwirken, Kontaktknüpfen, Tanzen, Genießen. Es hat sich gezeigt,
+            dass Musik unser aller Sprache ist, durch welche die Menschen in Kontakt
+            treten können, direkt, menschlich und respektvoll.
+          </p>
+          <p>
+            An den musikalischen Abenden kommen Menschen aller Nationen zusammen –
+            Musiker und Musikerinnen aus Argentinien, Mexiko, der Türkei, den USA, dem
+            Jemen, Norwegen, Panama, der Schweiz, Spanien, Chile, dem Iran, Kolumbien,
+            dem Libanon und Deutschland. 14 Nationen aus Ost und West, Nord und Süd
+            kommen hier regelmäßig zusammen, um Gemeinsamkeit zu erleben, Lebendigkeit
+            und Freude in die Welt zu tragen. Das in Zeiten des Krieges, der
+            gesellschaftlichen Verhärtungen, der sozialen Verarmung.
+          </p>
+          <h4>Warum gerade hier, auf der Admiralbrücke?</h4>
+          <p>Die Admiralbrücke eignet sich aus vielerlei Gründen als idealer Standpunkt:</p>
+          <ul>
+            <li>Die Brücke steht sowohl sinnbildlich als auch historisch-politisch für
+                das Überwinden von Gegensätzen, für Begegnung und Verständigung.</li>
+            <li>Die besonderen Verhältnisse durch: Verkehrsberuhigung, die vielen
+                Sitzmöglichkeiten, das Wasser und die Abendsonne, die Nähe zu Kiosken,
+                Eisdiele und Pizzerien, das Vorhandensein einer öffentlichen Toilette,
+                vorhandene große Mülleimer und die regelmäßige Entsorgung von Pfandgut,
+                das ständige Treiben und Flanieren über diesen Knotenpunkt.</li>
+          </ul>
+          <p>
+            All das macht diesen Ort attraktiv, durchlässig und kommunikativ. Die
+            Menschen wechseln, sowohl unter den Zuhörerinnen als auch unter den
+            Musizierenden – es ist ein Kommen und Gehen mit immer wieder überraschenden
+            Ereignissen: Kinder tanzen, staunen, hören gespannt zu, bekommen ein
+            Instrument in die Hand, sind Teil des Geschehens. Plötzlich fängt jemand an
+            zu singen, ein Rap, nur für ein Lied. Andere wieder bekommen
+            Rhythmusinstrumente wie Shaker oder Rassel, wieder jemand beginnt einen Tanz
+            in der Mitte, inspiriert, ungeplant. Eine Frau kommt dazu und singt, man
+            begleitet sie. Alle diese Menschen, auch und besonders die Kinder, verstehen
+            diese Sprache.
+          </p>
+          <p>
+            Die Admiralbrücke ist ein besonderer, inspirierender und seit Jahren
+            etablierter Ort zum Verweilen, Menschenkennenlernen und Freudeteilen. Leider
+            einer der ganz wenigen in unserer Stadt.
+          </p>
+          <h4>Anwohnerproblematik</h4>
+          <p>
+            Leider haben sich 4 oder 5 Anwohner eines benachbarten Hauses (so sagt es die
+            Polizei) für einen Kampf gegen die Musiker entschieden. Regelmäßig, schon am
+            Nachmittag oder frühen Abend, wird von dort aus die Polizei benachrichtigt
+            und die Erstattung einer Anzeige verlangt. Dies wiederum führt zu einem
+            Abbruch der Musik, manchmal zur Räumung der Brücke, zu Festnahmen und
+            möglicherweise zu Geldstrafen. Auch wird regelmäßig die Konfiszierung von
+            Instrumenten angedroht.
+          </p>
+          <p>
+            Aus Gesprächen mit der Polizei wird hingegen klar, dass die Lautstärke nicht
+            das Problem darstellt. Die Ordnungskräfte reagieren lediglich auf die
+            wiederholten Anrufe der hierfür schon bekannten Anwohnerschaft, bestehend aus
+            immer denselben vier bis fünf Personen, die das lebendige Geschehen in der
+            Nähe ihrer Wohnung bereits in den späten Nachmittagsstunden als gesetzwidrige
+            Ruhestörung unterbunden haben wollen. Leider gibt es von dieser Seite keine
+            Gesprächsbereitschaft oder Kontaktaufnahme, die eine friedliche Lösung unter
+            den Beteiligten erst ermöglichen würde.
+          </p>
+          <h4>Bitte an die BVV – Kulturausschuss</h4>
+          <p>
+            Um das friedliche und lebendige Miteinander im Bezirk zu erhalten, wünschen
+            wir uns eine größere öffentliche, auch kulturpolitische Wahrnehmung der
+            Situation, die wir im Privaten nicht lösen können, da die Menschen, welche
+            sich gestört fühlen (es ist auch nur eine kleine Minderheit unter den
+            Anwohnern), nicht mit uns in Verbindung treten wollen, um eine gemeinsame
+            Lösung zu finden.
+          </p>
+          <p>
+            Um die Konfrontation zwischen den Parteien zu befrieden, wünschen wir uns
+            einerseits einen wohlwollenden und verständnisvollen Umgang durch
+            Polizeikräfte, einen gewissen Schutz vor willkürlicher Anzeigeerstattung und
+            politisch den Wechsel der Perspektive von der Einstufung als eine zu ahndende
+            Ordnungswidrigkeit hin zu einer ausdrücklichen Anerkennung und Befürwortung
+            der Initiative als sinnstiftend und gemeinschaftsbildend, als ein gelungenes
+            Beispiel für ein lebendiges und buntes Kreuzberg, das wir uns alle wünschen.
+          </p>
+          <p class="unterschrift">Annette Prüfer · Musikerin</p>
+        </div>
+      </details>
 
-    <details class="dokument">
-      <summary>
-        <span class="de">Leserinnenbrief</span>
-        <span class="en" lang="en">Letter to the editor</span>
-        <span class="eyebrow">
-          <span class="de">Juni 2026 · zum Tagesspiegel-Artikel von Robert Klages, 25.06.2026</span>
-          <span class="en" lang="en">June 2026 · on the Tagesspiegel article by Robert Klages, 25.06.2026</span>
-        </span>
-      </summary>
-      <div class="dokument__inhalt">
-        <p class="en dokument__zusammenfassung" lang="en">
-          Summary: A reply to the newspaper article "Hobby musician arrested at public
-          session". It challenges the outrage at handmade music on the bridge – noise
-          from traffic and construction is accepted as a fact of city life, while
-          people making music, dancing and laughing together are reported to the
-          police – and ends with an invitation: come down and join in. The original
-          follows in German.
-        </p>
-        <p>
-          Immer wieder löst das öffentliche Musizieren auf der Admiralbrücke eine
-          gewaltige Entrüstung aus. Nicht nur bei einzelnen Anwohnern in bester
-          Wohnlage, auch Leser:innen des „Tagesspiegel“ eifern in zahlreichen
-          Kommentaren über die Unverfrorenheit von Musiker:innen, welche mit ihrem
-          unzumutbaren „Lärm“ die ruhebedürftigen Nachbarn zu terrorisieren wagen.
-          Handgemachte Musik wird gleichgesetzt mit Motorgeräuschen, lautstarkem Hupen,
-          Sirenengeheul und Baustellenlärm. Nein – schlimmer! Während man das letztere
-          in seiner Gesamtheit als unabänderliche, quasi natürliche Geräuschkulisse
-          einer Großstadt schweigend in Kauf nimmt, ist angesichts friedlichen
-          Musizierens die Geduld jäh am Ende: Was fällt diesen Leuten nur ein,
-          freiheraus ihre Privatinteressen auszuleben? Dieses öffentliche
-          Zur-Schau-Stellen? Menschengruppen zu bilden, zur Musik zu tanzen und zu
-          lachen? Wohl gar aus allzugroßer Lebensfreude die Scham zu verlieren, die
-          uns stets befällt, wenn wir einfach nur SIND.
-        </p>
-        <p>
-          Unterbunden muss es werden! Polizei! Hier ist Gefahr im Verzug! Die Gefahr
-          nämlich, angesichts dieser freudvollen Menschen die eigene Traurigkeit zu
-          empfinden. Ein nicht gelebtes Leben, unfähig, sich aus selbstauferlegten
-          Fesseln zu befreien. Man möchte rufen: „Komm herunter! Mach mit! Lass uns
-          gemeinsam das Leben feiern – Wir haben nur dieses!“
-        </p>
-        <p>So einfach könnte es sein.</p>
-        <p class="unterschrift">Annette Prüfer</p>
-      </div>
-    </details>
+      <details class="dokument">
+        <summary>
+          <span class="dokument__titel">
+            <span class="de">Leserinnenbrief</span>
+            <span class="en" lang="en">Letter to the editor</span>
+          </span>
+          <span class="eyebrow">
+            <span class="de">Juni 2026 · zum Tagesspiegel-Artikel von Robert Klages, 25.06.2026</span>
+            <span class="en" lang="en">June 2026 · on the Tagesspiegel article by Robert Klages, 25.06.2026</span>
+          </span>
+        </summary>
+        <div class="dokument__inhalt">
+          <p class="en dokument__zusammenfassung" lang="en">
+            Summary: A reply to the newspaper article "Hobby musician arrested at public
+            session". It challenges the outrage at handmade music on the bridge – noise
+            from traffic and construction is accepted as a fact of city life, while
+            people making music, dancing and laughing together are reported to the
+            police – and ends with an invitation: come down and join in. The original
+            follows in German.
+          </p>
+          <p>
+            Immer wieder löst das öffentliche Musizieren auf der Admiralbrücke eine
+            gewaltige Entrüstung aus. Nicht nur bei einzelnen Anwohnern in bester
+            Wohnlage, auch Leser:innen des „Tagesspiegel“ eifern in zahlreichen
+            Kommentaren über die Unverfrorenheit von Musiker:innen, welche mit ihrem
+            unzumutbaren „Lärm“ die ruhebedürftigen Nachbarn zu terrorisieren wagen.
+            Handgemachte Musik wird gleichgesetzt mit Motorgeräuschen, lautstarkem Hupen,
+            Sirenengeheul und Baustellenlärm. Nein – schlimmer! Während man das letztere
+            in seiner Gesamtheit als unabänderliche, quasi natürliche Geräuschkulisse
+            einer Großstadt schweigend in Kauf nimmt, ist angesichts friedlichen
+            Musizierens die Geduld jäh am Ende: Was fällt diesen Leuten nur ein,
+            freiheraus ihre Privatinteressen auszuleben? Dieses öffentliche
+            Zur-Schau-Stellen? Menschengruppen zu bilden, zur Musik zu tanzen und zu
+            lachen? Wohl gar aus allzugroßer Lebensfreude die Scham zu verlieren, die
+            uns stets befällt, wenn wir einfach nur SIND.
+          </p>
+          <p>
+            Unterbunden muss es werden! Polizei! Hier ist Gefahr im Verzug! Die Gefahr
+            nämlich, angesichts dieser freudvollen Menschen die eigene Traurigkeit zu
+            empfinden. Ein nicht gelebtes Leben, unfähig, sich aus selbstauferlegten
+            Fesseln zu befreien. Man möchte rufen: „Komm herunter! Mach mit! Lass uns
+            gemeinsam das Leben feiern – Wir haben nur dieses!“
+          </p>
+          <p>So einfach könnte es sein.</p>
+          <p class="unterschrift">Annette Prüfer</p>
+        </div>
+      </details>
     </div>
   </section>
 
 </main>
 
 <footer class="fuss">
-  <p class="fuss__zeile">
-    <span class="de">Dienstags auf der Brücke.
-    <em>Bring ein Instrument. Oder nur dich.</em></span>
-    <span class="en" lang="en">Tuesdays on the bridge.
-    <em>Bring an instrument. Or just yourself.</em></span>
-  </p>
+  <div class="ticker ticker--fuss" aria-hidden="true">
+    <div class="ticker__spur">
+      <span class="de">Bis Dienstag — auf der Brücke — bring ein Instrument — oder nur dich — </span>
+      <span class="de">Bis Dienstag — auf der Brücke — bring ein Instrument — oder nur dich — </span>
+      <span class="en" lang="en">See you Tuesday — on the bridge — bring an instrument — or just yourself — </span>
+      <span class="en" lang="en">See you Tuesday — on the bridge — bring an instrument — or just yourself — </span>
+    </div>
+  </div>
   <div class="fuss__meta">
     <span>Admiralbrücke · Berlin-Kreuzberg</span>
     <span class="de">D-Jam · dienstags am frühen Abend</span>
@@ -756,7 +719,7 @@
   if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches
       && "IntersectionObserver" in window) {
     var els = document.querySelectorAll(
-      ".abschnitt__kopf, .galerie figure, .djam__bilder figure, .ort__bild, .mitmachen li, .zeitleiste li");
+      ".abschnitt h2, .foto, .zeitleiste li, .mitmachen li, .aufruf__block");
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (e.isIntersecting) {
@@ -764,7 +727,7 @@
           io.unobserve(e.target);
         }
       });
-    }, { threshold: 0.15 });
+    }, { threshold: 0.1 });
     els.forEach(function (el) {
       el.classList.add("anim");
       io.observe(el);
