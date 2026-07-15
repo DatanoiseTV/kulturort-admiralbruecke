@@ -1,0 +1,21 @@
+DNS-Einträge für kulturort-admiralbruecke.de (beim Registrar eintragen)
+========================================================================
+
+Web (A / AAAA):
+  @    A       185.26.156.6
+  @    AAAA    2a00:d0c0:200:0:d879:eeff:feee:b652
+  www  A       185.26.156.6
+  www  AAAA    2a00:d0c0:200:0:d879:eeff:feee:b652
+
+Mail (MX):
+  @    MX 0    ijiraq.uberspace.de.
+
+SPF (TXT auf @):
+  v=spf1 include:spf.uberspace.de ~all
+
+DKIM (TXT auf uberspace._domainkey):
+  v=DKIM1;t=s;n=core;p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmPPRr2PSIU5Pqn1AMgUD0kdw5tr53YDbVes/0VAmtd00TJp/0MPxZ7di0wk7oRIvdptjRJq5Me3LbVz7DSe8+DOSp7jMWlqJR2t5EU9iuu0trhFxAT3DWnoNjk7yZUxSXDLTzKDectwQLdjGLn9C5N+MBMTrarbbpvmyRivB4k/eZqabCzFlCKvM9tGc04bCsZI92KcAg3D4xTCcLlOf+bGNpvWOiSSL4CaHbhxaNlAhTMc5sp4nz3fraXbm+9iPAheEO3Pts83iTe1QvKNu6krlhsn/HrP3reXvwB8EijVvIeX+T0ZWfwE2YmLFMkA32kOOSCiEZjQNg5jhagYmQQIDAQAB
+
+Hinweis: Falls das Registrar-Interface lange TXT-Werte ablehnt, den
+DKIM-Wert in zwei Strings à max. 255 Zeichen aufteilen (macht das
+Interface meist automatisch).
