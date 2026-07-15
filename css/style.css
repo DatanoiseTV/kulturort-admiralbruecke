@@ -608,6 +608,214 @@ html[data-lang="de"] .en { display: none !important; }
   .aufruf__raster { grid-template-columns: 1fr; }
 }
 
+/* --- 06 Feedback ------------------------------------------------------------------------------- */
+
+.feedback__intro {
+  max-width: var(--mass);
+  color: rgba(242, 241, 244, 0.9);
+  margin-bottom: 2.4rem;
+}
+
+.formular { max-width: 52rem; }
+
+.formular__honig {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.formular__reihe {
+  display: grid;
+  gap: 1.6rem;
+  margin-bottom: 1.6rem;
+}
+
+.formular__reihe--bewertung {
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1.6rem 3rem;
+  align-items: start;
+  border: 1px solid var(--linie);
+  background: var(--schwarz-2);
+  padding: 1.6rem;
+}
+
+.formular__reihe--bewertung .formular__gruppe:nth-child(3) { grid-column: 1 / -1; }
+
+.formular__reihe--texte { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+.formular__reihe--kontakt {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 1.6rem;
+}
+
+.formular__gruppe {
+  border: 0;
+  min-width: 0;
+}
+
+.formular__feld { display: block; margin-bottom: 1.6rem; }
+
+.formular__reihe .formular__feld { margin-bottom: 0; }
+
+/* Sterne: DOM-Reihenfolge 5..1, Zeile gespiegelt – checked färbt alle rechts davon */
+.sterne {
+  display: inline-flex;
+  flex-direction: row-reverse;
+}
+
+.sterne input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.sterne label {
+  font-size: 2.1rem;
+  line-height: 1;
+  color: var(--linie);
+  cursor: pointer;
+  padding: 0 0.12em;
+  transition: color 120ms ease;
+}
+
+.sterne input:checked ~ label,
+.sterne label:hover,
+.sterne label:hover ~ label {
+  color: var(--acid);
+}
+
+.sterne input:focus-visible + label {
+  outline: 2px solid var(--acid);
+  outline-offset: 2px;
+}
+
+.sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+/* Pillen (Radio-Gruppen) */
+.pillen {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.pillen input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.pillen label {
+  font-family: var(--font-amt);
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  color: var(--grau);
+  border: 1px solid var(--linie);
+  padding: 0.5em 1em;
+  cursor: pointer;
+  transition: color 120ms ease, border-color 120ms ease;
+}
+
+.pillen label:hover { color: var(--weiss); border-color: var(--grau); }
+
+.pillen input:checked + label {
+  color: var(--schwarz);
+  background: var(--violett-hell);
+  border-color: var(--violett-hell);
+}
+
+.pillen input:focus-visible + label {
+  outline: 2px solid var(--acid);
+  outline-offset: 2px;
+}
+
+.formular__label {
+  display: block;
+  font-family: var(--font-amt);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--grau);
+  margin-bottom: 0.45rem;
+}
+
+.formular input[type="text"],
+.formular input[type="email"],
+.formular select,
+.formular textarea {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--weiss);
+  background: var(--schwarz-2);
+  border: 1px solid var(--linie);
+  border-radius: 0;
+  padding: 0.7em 0.85em;
+}
+
+.formular select { appearance: none; }
+
+.formular textarea { resize: vertical; min-height: 9rem; }
+
+.formular input:focus-visible,
+.formular select:focus-visible,
+.formular textarea:focus-visible {
+  outline: 2px solid var(--acid);
+  outline-offset: 0;
+  border-color: var(--acid);
+}
+
+.formular__senden {
+  margin-top: 1.4rem;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--schwarz);
+  background: var(--acid);
+  border: 0;
+  padding: 0.85em 2.2em;
+  cursor: pointer;
+}
+
+.formular__senden:hover { background: var(--violett); color: var(--weiss); }
+
+.formular__hinweis {
+  margin-top: 1.2rem;
+  font-size: 0.85rem;
+  color: var(--grau);
+  max-width: var(--mass);
+}
+
+.formular__meldung {
+  max-width: 46rem;
+  font-weight: 700;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1.6rem;
+  border: 1px solid;
+}
+
+.formular__meldung--danke { color: var(--acid); border-color: var(--acid); }
+.formular__meldung--fehler { color: #ff7a6e; border-color: #ff7a6e; }
+
+@media (max-width: 720px) {
+  .formular__reihe--bewertung,
+  .formular__reihe--texte,
+  .formular__reihe--kontakt { grid-template-columns: 1fr; }
+  .formular__reihe--bewertung .formular__gruppe:nth-child(3) { grid-column: auto; }
+}
+
 /* --- Zitat ------------------------------------------------------------------------------------ */
 
 .zitat { text-align: center; }

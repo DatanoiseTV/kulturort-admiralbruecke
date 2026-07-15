@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css?v=2">
 </head>
 <body>
 
@@ -26,6 +26,7 @@
     <a href="#chronik"><span class="de">Chronik</span><span class="en" lang="en">History</span></a>
     <a href="#aufruf"><span class="de">Aufruf</span><span class="en" lang="en">Support</span></a>
     <a href="#dokumente"><span class="de">Dokumente</span><span class="en" lang="en">Documents</span></a>
+    <a href="#feedback">Feedback</a>
     <button class="kopf__lang" id="lang-toggle" type="button" aria-label="Switch to English">EN</button>
   </nav>
 </header>
@@ -471,6 +472,154 @@
     </div>
   </section>
 
+  <!-- 06 Feedback -->
+  <section class="abschnitt abschnitt--rechts feedback" id="feedback" data-nr="06">
+    <div class="abschnitt__innen">
+      <h2>
+        <span class="de">Sag uns, <em>was du denkst.</em></span>
+        <span class="en" lang="en">Tell us <em>what you think.</em></span>
+      </h2>
+      <p class="feedback__intro">
+        <span class="de">Ob Anwohnerin, Musiker, Gast oder einfach neugierig: Was
+        gefällt dir an den Abenden auf der Brücke – und was stört dich? Gerade
+        kritische Rückmeldungen aus der Nachbarschaft helfen uns, eine friedliche
+        Lösung zu finden. Wir lesen alles und antworten, wenn du uns eine
+        Adresse dalässt.</span>
+        <span class="en" lang="en">Resident, musician, guest or just curious: what
+        do you like about the evenings on the bridge – and what bothers you?
+        Critical feedback from the neighbourhood especially helps us find a
+        peaceful solution. We read everything and reply if you leave an
+        address.</span>
+      </p>
+      <p class="formular__meldung formular__meldung--danke" id="feedback-danke" hidden>
+        <span class="de">Danke! Deine Nachricht ist angekommen.</span>
+        <span class="en" lang="en">Thank you! Your message has arrived.</span>
+      </p>
+      <p class="formular__meldung formular__meldung--fehler" id="feedback-fehler" hidden>
+        <span class="de">Das hat nicht geklappt. Bitte gib eine Bewertung oder
+        einen kurzen Text an, prüfe die E-Mail-Adresse und versuch es noch
+        einmal.</span>
+        <span class="en" lang="en">That didn't work. Please give a rating or a
+        short text, check the email address and try again.</span>
+      </p>
+      <form class="formular" method="post" action="feedback.php" id="feedback-formular">
+        <input type="hidden" name="sprache" id="feedback-sprache" value="de">
+        <p class="formular__honig" aria-hidden="true">
+          <label>Website
+            <input type="text" name="website" tabindex="-1" autocomplete="off">
+          </label>
+        </p>
+
+        <div class="formular__reihe formular__reihe--bewertung">
+          <fieldset class="formular__gruppe">
+            <legend class="formular__label">
+              <span class="de">Wie erlebst du die Abende auf der Brücke?</span>
+              <span class="en" lang="en">How do you experience the evenings on the bridge?</span>
+            </legend>
+            <div class="sterne">
+              <input type="radio" id="stern5" name="sterne" value="5">
+              <label for="stern5"><span class="sr">5/5</span>★</label>
+              <input type="radio" id="stern4" name="sterne" value="4">
+              <label for="stern4"><span class="sr">4/5</span>★</label>
+              <input type="radio" id="stern3" name="sterne" value="3">
+              <label for="stern3"><span class="sr">3/5</span>★</label>
+              <input type="radio" id="stern2" name="sterne" value="2">
+              <label for="stern2"><span class="sr">2/5</span>★</label>
+              <input type="radio" id="stern1" name="sterne" value="1">
+              <label for="stern1"><span class="sr">1/5</span>★</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="formular__gruppe">
+            <legend class="formular__label">
+              <span class="de">Wie empfindest du die Lautstärke?</span>
+              <span class="en" lang="en">How do you find the volume?</span>
+            </legend>
+            <div class="pillen">
+              <input type="radio" id="laut1" name="lautstaerke" value="passt">
+              <label for="laut1"><span class="de">passt</span><span class="en" lang="en">fine</span></label>
+              <input type="radio" id="laut2" name="lautstaerke" value="manchmal_zu_laut">
+              <label for="laut2"><span class="de">manchmal zu laut</span><span class="en" lang="en">sometimes too loud</span></label>
+              <input type="radio" id="laut3" name="lautstaerke" value="oft_zu_laut">
+              <label for="laut3"><span class="de">oft zu laut</span><span class="en" lang="en">often too loud</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="formular__gruppe">
+            <legend class="formular__label">
+              <span class="de">Ich bin …</span><span class="en" lang="en">I am …</span>
+            </legend>
+            <div class="pillen">
+              <input type="radio" id="rolle1" name="rolle" value="anwohner">
+              <label for="rolle1"><span class="de">Anwohner:in</span><span class="en" lang="en">resident</span></label>
+              <input type="radio" id="rolle2" name="rolle" value="musiker">
+              <label for="rolle2"><span class="de">Musiker:in</span><span class="en" lang="en">musician</span></label>
+              <input type="radio" id="rolle3" name="rolle" value="gast">
+              <label for="rolle3"><span class="de">Gast</span><span class="en" lang="en">guest</span></label>
+              <input type="radio" id="rolle4" name="rolle" value="sonstiges">
+              <label for="rolle4"><span class="de">Sonstiges</span><span class="en" lang="en">other</span></label>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="formular__reihe formular__reihe--texte">
+          <label class="formular__feld">
+            <span class="formular__label">
+              <span class="de">Was gefällt dir?</span>
+              <span class="en" lang="en">What do you like?</span>
+            </span>
+            <textarea name="gefaellt" rows="4" maxlength="2000"></textarea>
+          </label>
+          <label class="formular__feld">
+            <span class="formular__label">
+              <span class="de">Was stört dich? Was sollten wir besser machen?</span>
+              <span class="en" lang="en">What bothers you? What should we do better?</span>
+            </span>
+            <textarea name="stoert" rows="4" maxlength="2000"></textarea>
+          </label>
+        </div>
+
+        <label class="formular__feld">
+          <span class="formular__label">
+            <span class="de">Sonst noch etwas?</span>
+            <span class="en" lang="en">Anything else?</span>
+          </span>
+          <textarea name="nachricht" rows="3" maxlength="4000"></textarea>
+        </label>
+
+        <div class="formular__reihe formular__reihe--kontakt">
+          <label class="formular__feld">
+            <span class="formular__label">
+              <span class="de">Name (optional)</span><span class="en" lang="en">Name (optional)</span>
+            </span>
+            <input type="text" name="name" maxlength="200" autocomplete="name">
+          </label>
+          <label class="formular__feld">
+            <span class="formular__label">
+              <span class="de">E-Mail (optional, für Antwort)</span>
+              <span class="en" lang="en">Email (optional, for a reply)</span>
+            </span>
+            <input type="email" name="email" maxlength="320" autocomplete="email">
+          </label>
+        </div>
+
+        <button class="formular__senden" type="submit">
+          <span class="de">Abschicken</span><span class="en" lang="en">Send</span>
+        </button>
+        <p class="formular__hinweis">
+          <span class="de">Auch nur eine Bewertung ohne Text hilft uns. Deine
+          Nachricht geht an die D-Jam-Gemeinschaft
+          (kontakt@kulturort-admiralbruecke.de). Keine Angabe wird
+          veröffentlicht.</span>
+          <span class="en" lang="en">Even a rating without any text helps us. Your
+          message goes to the D-Jam community
+          (kontakt@kulturort-admiralbruecke.de). Nothing you enter is
+          published.</span>
+        </p>
+      </form>
+    </div>
+  </section>
+
   <!-- Zitat -->
   <section class="abschnitt zitat">
     <blockquote>
@@ -485,8 +634,8 @@
     </cite>
   </section>
 
-  <!-- 06 Dokumente -->
-  <section class="abschnitt dokumente" id="dokumente" data-nr="06">
+  <!-- 07 Dokumente -->
+  <section class="abschnitt dokumente" id="dokumente" data-nr="07">
     <div class="abschnitt__innen">
       <h2>
         <span class="de">Zum Nachlesen – <em>im Wortlaut</em></span>
@@ -700,6 +849,8 @@
     btn.setAttribute("aria-label",
       lang === "de" ? "Switch to English" : "Auf Deutsch umschalten");
     try { localStorage.setItem("lang", lang); } catch (e) {}
+    var sprachfeld = document.getElementById("feedback-sprache");
+    if (sprachfeld) { sprachfeld.value = lang; }
   }
 
   var stored = null;
@@ -716,6 +867,13 @@
   btn.addEventListener("click", function () {
     apply(html.getAttribute("data-lang") === "de" ? "en" : "de");
   });
+
+  // Rückmeldung nach Formular-Redirect (?feedback=danke|fehler)
+  var status = new URLSearchParams(location.search).get("feedback");
+  if (status === "danke" || status === "fehler") {
+    var meldung = document.getElementById("feedback-" + status);
+    if (meldung) { meldung.hidden = false; }
+  }
 
   if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches
       && "IntersectionObserver" in window) {
