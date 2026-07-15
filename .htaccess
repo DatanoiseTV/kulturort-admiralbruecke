@@ -1,5 +1,9 @@
 RewriteEngine On
 
+# www -> Apex-Domain, dauerhaft (301); greift für jede Domain generisch
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
 # Formulare
 RewriteRule ^feedback$ feedback.php [L]
 RewriteRule ^newsletter/anmelden$ newsletter.php?action=signup [L]
