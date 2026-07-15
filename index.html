@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=2">
+<link rel="stylesheet" href="css/style.css?v=3">
 </head>
 <body>
 
@@ -502,7 +502,7 @@
         <span class="en" lang="en">That didn't work. Please give a rating or a
         short text, check the email address and try again.</span>
       </p>
-      <form class="formular" method="post" action="feedback.php" id="feedback-formular">
+      <form class="formular" method="post" action="feedback" id="feedback-formular">
         <input type="hidden" name="sprache" id="feedback-sprache" value="de">
         <p class="formular__honig" aria-hidden="true">
           <label>Website
@@ -632,6 +632,67 @@
       <span class="de">Annette Prüfer, Leserinnenbrief, Juni 2026</span>
       <span class="en" lang="en">Annette Prüfer, letter to the editor, June 2026</span>
     </cite>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="abschnitt anmeldung" id="newsletter">
+    <div class="abschnitt__innen anmeldung__block">
+      <div class="anmeldung__text">
+        <h2>
+          <span class="de">Bleib auf dem <em>Laufenden.</em></span>
+          <span class="en" lang="en">Stay in <em>the loop.</em></span>
+        </h2>
+        <p>
+          <span class="de">Jam-Termine, Neues von der Initiative, gelegentliche
+          Einladungen – selten, aber herzlich. Mit Bestätigungslink, jederzeit
+          abmeldbar, Adresse wird für nichts anderes verwendet.</span>
+          <span class="en" lang="en">Jam dates, news from the initiative, occasional
+          invitations – rare but heartfelt. Confirmation link, unsubscribe any
+          time, your address is used for nothing else.</span>
+        </p>
+      </div>
+      <div class="anmeldung__formular">
+        <p class="formular__meldung formular__meldung--danke" id="newsletter-bestaetigen" hidden>
+          <span class="de">Fast geschafft! Schau in dein Postfach und klick den
+          Bestätigungslink.</span>
+          <span class="en" lang="en">Almost there! Check your inbox and click the
+          confirmation link.</span>
+        </p>
+        <p class="formular__meldung formular__meldung--danke" id="newsletter-bestaetigt" hidden>
+          <span class="de">Angemeldet – bis Dienstag auf der Brücke!</span>
+          <span class="en" lang="en">Subscribed – see you Tuesday on the bridge!</span>
+        </p>
+        <p class="formular__meldung formular__meldung--danke" id="newsletter-abgemeldet" hidden>
+          <span class="de">Abgemeldet. Deine Adresse ist gelöscht.</span>
+          <span class="en" lang="en">Unsubscribed. Your address has been deleted.</span>
+        </p>
+        <p class="formular__meldung formular__meldung--fehler" id="newsletter-fehler" hidden>
+          <span class="de">Das hat nicht geklappt – bitte prüfe die Adresse und
+          versuch es noch einmal.</span>
+          <span class="en" lang="en">That didn't work – please check the address and
+          try again.</span>
+        </p>
+        <form method="post" action="newsletter/anmelden" id="newsletter-formular">
+          <input type="hidden" name="sprache" class="sprachfeld" value="de">
+          <p class="formular__honig" aria-hidden="true">
+            <label>Website
+              <input type="text" name="website" tabindex="-1" autocomplete="off">
+            </label>
+          </p>
+          <div class="anmeldung__zeile">
+            <label class="sr" for="newsletter-email">
+              <span class="de">E-Mail-Adresse</span><span class="en" lang="en">Email address</span>
+            </label>
+            <input type="email" id="newsletter-email" name="email" maxlength="320"
+                   autocomplete="email" required
+                   placeholder="deine@mail.de">
+            <button type="submit">
+              <span class="de">Anmelden</span><span class="en" lang="en">Subscribe</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
   </section>
 
   <!-- 07 Dokumente -->
@@ -851,6 +912,7 @@
     try { localStorage.setItem("lang", lang); } catch (e) {}
     var sprachfeld = document.getElementById("feedback-sprache");
     if (sprachfeld) { sprachfeld.value = lang; }
+    document.querySelectorAll(".sprachfeld").forEach(function (f) { f.value = lang; });
   }
 
   var stored = null;
@@ -868,12 +930,15 @@
     apply(html.getAttribute("data-lang") === "de" ? "en" : "de");
   });
 
-  // Rückmeldung nach Formular-Redirect (?feedback=danke|fehler)
-  var status = new URLSearchParams(location.search).get("feedback");
-  if (status === "danke" || status === "fehler") {
-    var meldung = document.getElementById("feedback-" + status);
-    if (meldung) { meldung.hidden = false; }
-  }
+  // Rückmeldung nach Formular-Redirects (?feedback=…, ?newsletter=…)
+  var params = new URLSearchParams(location.search);
+  ["feedback", "newsletter"].forEach(function (art) {
+    var wert = params.get(art);
+    if (wert) {
+      var meldung = document.getElementById(art + "-" + wert);
+      if (meldung) { meldung.hidden = false; }
+    }
+  });
 
   if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches
       && "IntersectionObserver" in window) {

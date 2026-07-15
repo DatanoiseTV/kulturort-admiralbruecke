@@ -816,6 +816,75 @@ html[data-lang="de"] .en { display: none !important; }
   .formular__reihe--bewertung .formular__gruppe:nth-child(3) { grid-column: auto; }
 }
 
+/* --- Newsletter --------------------------------------------------------------------------------- */
+
+.anmeldung__block {
+  display: grid;
+  grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+  gap: clamp(2rem, 4.5vw, 4.5rem);
+  align-items: center;
+  background: var(--violett);
+  color: var(--schwarz);
+  padding: clamp(2rem, 4vw, 3.5rem);
+}
+
+.anmeldung__block h2 { color: var(--schwarz); margin-bottom: 0.8rem; }
+
+.anmeldung__block h2 em { color: var(--acid); }
+
+.anmeldung__text p { max-width: 32em; }
+
+.anmeldung__zeile {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.anmeldung__zeile input[type="email"] {
+  flex: 1 1 16rem;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: var(--weiss);
+  background: var(--schwarz);
+  border: 0;
+  padding: 0.85em 1em;
+}
+
+.anmeldung__zeile input[type="email"]::placeholder { color: var(--grau); }
+
+.anmeldung__zeile button {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--schwarz);
+  background: var(--acid);
+  border: 0;
+  padding: 0.85em 1.8em;
+  cursor: pointer;
+}
+
+.anmeldung__zeile button:hover { background: var(--schwarz); color: var(--acid); }
+
+.anmeldung .formular__meldung { margin-bottom: 1.2rem; }
+
+.anmeldung .formular__meldung--danke {
+  color: var(--schwarz);
+  border-color: var(--schwarz);
+  background: rgba(217, 255, 75, 0.35);
+}
+
+.anmeldung .formular__meldung--fehler {
+  color: #5c1710;
+  border-color: #5c1710;
+  background: rgba(255, 122, 110, 0.35);
+}
+
+@media (max-width: 880px) {
+  .anmeldung__block { grid-template-columns: 1fr; }
+}
+
 /* --- Zitat ------------------------------------------------------------------------------------ */
 
 .zitat { text-align: center; }

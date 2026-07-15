@@ -1,8 +1,20 @@
 # API-Vertrag – Kulturort Admiralbrücke
 
-Statische Seite mit genau einem dynamischen Endpunkt. Diese Datei ist
+Statische Seite mit wenigen dynamischen Endpunkten. Diese Datei ist
 maßgeblich: kein Feld und kein Fehlerfall wird im Code ergänzt, ohne ihn
 hier zuerst festzuhalten.
+
+## Saubere URLs
+
+`.htaccess`-Rewrites (kanonische Form; die `.php`-Ziele bleiben intern):
+
+| Route                                | Ziel                                        |
+|--------------------------------------|---------------------------------------------|
+| `POST /feedback`                     | `feedback.php`                               |
+| `POST /newsletter/anmelden`          | `newsletter.php?action=signup`               |
+| `GET /newsletter/bestaetigen/<token>`| `newsletter.php?action=confirm&token=<token>`|
+| `GET /newsletter/abmelden/<token>`   | `newsletter.php?action=abmelden&token=<token>`|
+| `GET/POST /verwaltung`               | `verwaltung.php`                             |
 
 ## POST /feedback.php
 
@@ -56,3 +68,51 @@ Bewertung ohne Text ist eine gültige Einsendung).
 Die Startseite zeigt bei `?feedback=danke` bzw. `?feedback=fehler` eine
 zweisprachige Bestätigung/Fehlermeldung über dem Formular (per JS
 eingeblendet; ohne JS bleibt die Seite schlicht ohne Meldung nutzbar).
+
+## Newsletter (`newsletter.php`)
+
+Double-Opt-in-Pflicht: Eine Adresse gilt erst als angemeldet, wenn der
+Bestätigungslink aus der Opt-in-Mail geklickt wurde. Speicherung in
+SQLite außerhalb des Docroots (`~/kulturort-newsletter/newsletter.sqlite`),
+Tabelle `abonnenten(email UNIQUE, status, token, sprache, ts_signup,
+ts_confirm)`; `status` ∈ `pending` | `confirmed`. Abmeldung LÖSCHT die
+Zeile (Datenminimierung). Tokens: 64 Hex-Zeichen aus `random_bytes(32)`,
+pro Adresse fest. Basis-URL für Links wird NUR aus einer Host-Allowlist
+gebildet (`syso.uber.space`, `kulturort-admiralbruecke.de`, `www.…`) –
+kein Host-Header-Injection in Mails.
+
+### POST /newsletter.php  (`action=signup`)
+
+| Feld      | Pflicht | Regeln                                          |
+|-----------|---------|--------------------------------------------------|
+| `email`   | ja      | `FILTER_VALIDATE_EMAIL`, max. 320, lowercased    |
+| `website` | –       | Honeypot; gefüllt ⇒ vorgetäuschter Erfolg        |
+| `sprache` | nein    | `de`/`en`, bestimmt Sprache der Opt-in-Mail      |
+
+Verhalten: neue Adresse ⇒ `pending` anlegen + Opt-in-Mail; existierende
+`pending` ⇒ Opt-in-Mail erneut senden, aber höchstens alle 15 Minuten;
+existierende `confirmed` ⇒ keine Mail, trotzdem Erfolgsmeldung (kein
+Adress-Oracle). Redirect immer `303` auf `/?newsletter=bestaetigen#newsletter`;
+bei ungültiger Mail `/?newsletter=fehler#newsletter`.
+
+### GET /newsletter.php?action=confirm&token=…
+
+Gültiger Token einer `pending`-Adresse ⇒ `confirmed`, Redirect
+`/?newsletter=bestaetigt#newsletter`. Unbekannter Token ⇒
+`/?newsletter=fehler#newsletter`.
+
+### GET /newsletter.php?action=abmelden&token=…
+
+Gültiger Token ⇒ Zeile löschen, Redirect `/?newsletter=abgemeldet#newsletter`.
+Unbekannter Token ⇒ ebenfalls `abgemeldet` (idempotent, kein Oracle).
+
+### /verwaltung.php (Admin, nicht öffentlich verlinkt)
+
+HTTP Basic Auth (Nutzer `djam`, `password_hash` in
+`~/kulturort-newsletter/config.php`, Vergleich `password_verify`).
+Funktionen: Abonnentenliste mit Status, CSV-Export der bestätigten
+Adressen, Abonnent löschen, Newsletter (Betreff + Text) an alle
+`confirmed` senden – jede Mail mit individuellem Abmeldelink und
+`List-Unsubscribe`-Header. Schreibende Aktionen nur per POST mit
+CSRF-Token (`hash_hmac(sha256, Datum, secret)`); Versandhistorie in
+Tabelle `versand(ts, betreff, empfaenger)`.

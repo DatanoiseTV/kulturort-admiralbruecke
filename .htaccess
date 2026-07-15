@@ -1,0 +1,12 @@
+RewriteEngine On
+
+# Formulare
+RewriteRule ^feedback$ feedback.php [L]
+RewriteRule ^newsletter/anmelden$ newsletter.php?action=signup [L]
+
+# Newsletter-Links aus Mails (Token: 64 Hex-Zeichen)
+RewriteRule ^newsletter/bestaetigen/([0-9a-f]{64})$ newsletter.php?action=confirm&token=$1 [L]
+RewriteRule ^newsletter/abmelden/([0-9a-f]{64})$ newsletter.php?action=abmelden&token=$1 [L]
+
+# Verwaltung
+RewriteRule ^verwaltung$ verwaltung.php [L]
