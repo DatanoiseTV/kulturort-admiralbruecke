@@ -124,6 +124,12 @@ Session-Login mit eigenem Formular (kein HTTP Basic):
 Funktionen wie gehabt: Abonnentenliste mit Status, CSV-Export der
 bestätigten Adressen, Abonnent löschen, Newsletter (Betreff + Text) an
 alle `confirmed` – jede Mail mit individuellem Abmeldelink und
-`List-Unsubscribe`-Header. Schreibende Aktionen nur per POST mit
+`List-Unsubscribe`-Header.
+
+Matomo-Kampagnen: Beim Versand werden alle Links auf die eigenen Hosts
+im Newslettertext um `mtm_campaign=newsletter&mtm_kwd=<JJJJ-MM-TT>-
+<betreff-slug>` ergänzt; zusätzlich enthält der Fußbereich einen so
+getaggten Link zur Seite. Der Abmeldelink bleibt ungetaggt. Kein
+Tracking-Pixel (reine Text-Mails, keine Öffnungsverfolgung). Schreibende Aktionen nur per POST mit
 CSRF-Token aus der Session (`random_bytes`, `hash_equals`);
 Versandhistorie in Tabelle `versand(ts, betreff, empfaenger)`.

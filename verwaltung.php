@@ -26,6 +26,38 @@ function e(string $s): string {
     return htmlspecialchars($s, ENT_QUOTES, 'UTF-8');
 }
 
+function slug(string $s, int $max = 40): string {
+    $s = mb_strtolower($s);
+    $s = strtr($s, ['ä' => 'ae', 'ö' => 'oe', 'ü' => 'ue', 'ß' => 'ss']);
+    $s = (string)preg_replace('/[^a-z0-9]+/', '-', $s);
+    return trim(mb_substr($s, 0, $max), '-');
+}
+
+/** Link um Matomo-Kampagnenparameter ergänzen (vor einem #Fragment). */
+function kampagnen_link(string $url, string $kw): string {
+    $fragment = '';
+    $raute = strpos($url, '#');
+    if ($raute !== false) {
+        $fragment = substr($url, $raute);
+        $url = substr($url, 0, $raute);
+    }
+    $sep = str_contains($url, '?') ? '&' : '?';
+    return $url . $sep . 'mtm_campaign=newsletter&mtm_kwd=' . rawurlencode($kw) . $fragment;
+}
+
+/** Alle Links auf eigene Hosts im Text mit Kampagnenparametern versehen. */
+function text_mit_kampagne(string $text, string $kw): string {
+    return (string)preg_replace_callback(
+        '~https://(?:www\.)?(?:kulturort-admiralbruecke\.de|syso\.uber\.space)[^\s<>"]*~',
+        function (array $m) use ($kw): string {
+            $url  = rtrim($m[0], '.,;:)!?»');
+            $rest = substr($m[0], strlen($url));
+            return kampagnen_link($url, $kw) . $rest;
+        },
+        $text
+    );
+}
+
 function basis_url(): string {
     $host = strtolower((string)($_SERVER['HTTP_HOST'] ?? ''));
     if (!in_array($host, HOSTS, true)) {
@@ -222,11 +254,14 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
         } else {
             $empfaenger = $pdo->query('SELECT email, token FROM abonnenten WHERE status = "confirmed"')
                               ->fetchAll(PDO::FETCH_ASSOC);
+            $kampagne = gmdate('Y-m-d') . '-' . slug($betreff);
+            $text_getaggt = text_mit_kampagne($text, $kampagne);
             $gesendet = 0;
             foreach ($empfaenger as $abo) {
                 $abmelden = basis_url() . '/newsletter/abmelden/' . $abo['token'];
-                $body = $text . "\n\n--\n"
+                $body = $text_getaggt . "\n\n--\n"
                       . "Kulturort Admiralbrücke · dienstags auf der Brücke\n"
+                      . "Zur Seite: " . kampagnen_link(basis_url() . '/', $kampagne) . "\n"
                       . "Abmelden: " . $abmelden . "\n";
                 $header = "From: " . ZIEL_MAIL . "\r\n"
                         . "Content-Type: text/plain; charset=UTF-8\r\n"
