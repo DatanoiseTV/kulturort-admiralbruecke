@@ -1,0 +1,50 @@
+title: Termine
+
+options:
+  delete: false
+
+fields:
+  heading:
+    label: Überschrift
+    type: text
+  note:
+    label: Hinweiszeile über der Liste
+    type: writer
+    marks: [bold]
+  dates:
+    label: Termine
+    type: structure
+    columns:
+      date:
+        width: 1/4
+      title:
+        width: 1/2
+      status:
+        width: 1/4
+    sortBy: date asc
+    fields:
+      date:
+        label: Datum
+        type: date
+        display: DD.MM.YYYY
+        required: true
+      time:
+        label: Uhrzeit
+        type: text
+        placeholder: ab 18 Uhr
+      title:
+        label: Titel
+        type: text
+        required: true
+        placeholder: D-Jam auf der Brücke
+      status:
+        label: Status
+        type: select
+        default: geplant
+        options:
+          geplant: geplant
+          angemeldet: als Versammlung angemeldet
+          abgesagt: abgesagt
+      note:
+        label: Notiz (optional)
+        type: text

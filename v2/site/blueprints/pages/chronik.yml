@@ -1,0 +1,47 @@
+title: Chronik
+
+options:
+  delete: false
+
+fields:
+  heading:
+    label: Überschrift
+    type: text
+  heading_accent:
+    label: Betonter Teil der Überschrift (grün)
+    type: text
+  intro:
+    label: Einleitung
+    type: writer
+    marks: [bold]
+  entries:
+    label: Einträge
+    type: structure
+    columns:
+      year:
+        width: 1/6
+      text:
+        width: 5/6
+    fields:
+      year:
+        label: Jahr
+        type: text
+        required: true
+      intervention:
+        label: Behördlicher Eingriff? (gelb markiert)
+        type: toggle
+        default: false
+      text:
+        label: Text
+        type: textarea
+        size: small
+  sources:
+    label: Quellen (Links)
+    type: structure
+    fields:
+      title:
+        label: Bezeichnung
+        type: text
+      url:
+        label: Link
+        type: url

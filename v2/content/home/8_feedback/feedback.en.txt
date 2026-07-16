@@ -1,0 +1,13 @@
+Title: Feedback
+
+----
+
+Heading: Tell us
+
+----
+
+Heading-accent: what you think.
+
+----
+
+Intro: <p>Resident, musician, guest or just curious: what do you like about the evenings on the bridge – and what bothers you? Critical feedback from the neighbourhood especially helps us find a peaceful solution. We read everything and reply if you leave an address.</p>

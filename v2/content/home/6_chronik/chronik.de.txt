@@ -1,0 +1,73 @@
+Title: Chronik
+
+----
+
+Heading: Mediation, Lärmomat, 22-Uhr-Regel:
+
+----
+
+Heading-accent: alles schon versucht.
+
+----
+
+Intro: <p>Der Streit um die Brücke ist viel älter als die D-Jam. Seit bald zwanzig Jahren probiert die Stadt Antworten auf dieselbe Frage aus – und eine hat noch niemand versucht: den Ort als das anzuerkennen, was er längst ist. Ein Kulturort.</p>
+
+----
+
+Entries:
+
+-
+  year: "1882"
+  intervention: "false"
+  text: "Die Admiralbrücke wird fertig – eine genietete Eisenkonstruktion von Georg Pinkenburg. Heute steht sie unter Denkmalschutz."
+-
+  year: "1990er"
+  intervention: "false"
+  text: "Der Bezirk sperrt die Brücke mit Pollern für den Durchgangsverkehr. Die Verkehrsberuhigung macht sie erst zu dem Treffpunkt, der sie heute ist."
+-
+  year: "2007"
+  intervention: "false"
+  text: "Ein rbb-Film macht die Brücke stadtbekannt; sie taucht in Reiseführern auf und wird zum Ort für den Sonnenuntergang."
+-
+  year: "2008"
+  intervention: "false"
+  text: "An Sommerabenden sitzen bis zu 250 Menschen auf der Brücke. Erste Beschwerden, eine Anwohnerinitiative gründet sich. Eine Anwohnerversammlung beschließt einen Kompromiss – die Verkehrsberuhigung bleibt."
+-
+  year: "2010"
+  intervention: "true"
+  text: "Senatsfinanzierte Mediatoren arbeiten direkt auf der Brücke, dreimal pro Woche. Im August eskaliert ein Einsatz: rund hundert Polizisten räumen die Brücke, tags darauf kommt der Regierende Bürgermeister persönlich vorbei. Seitdem gilt die Praxis: um 22 Uhr ist Schluss."
+-
+  year: "2023"
+  intervention: "true"
+  text: "Der Bezirk stellt den „Lärmomat“ auf: eine Mooswand mit Lärmampel, die nachts gegen einen 55-dB(A)-Schwellwert misst und bei Überschreitung rot leuchtet. Anwohner halten ihn für überflüssig – „die Polizei kam doch sowieso schon jeden Abend“."
+-
+  year: "2024"
+  intervention: "true"
+  text: "Bilanz des Bezirksamts nach drei Monaten Lärmomat: 63 Stunden über dem Schwellwert, keine nachweisbare Lärmminderung. Das Projekt wird beendet, das Gerät abgebaut."
+-
+  year: "2026"
+  intervention: "true"
+  text: "Jam-Sessions werden regelmäßig polizeilich beendet; im Juni wird eine Musikerin festgenommen. Die D-Jam meldet ihre Abende seither als Versammlung an – und beantragt beim Kulturausschuss die Anerkennung der Brücke als Kulturort."
+
+----
+
+Sources:
+
+-
+  title: Wikipedia
+  url: https://de.wikipedia.org/wiki/Admiralbr%C3%BCcke
+-
+  title: taz 2010
+  url: https://taz.de/Mediation-auf-der-Admiralbruecke/!5139320/
+-
+  title: Tagesspiegel 2011
+  url: https://www.tagesspiegel.de/berlin/feiern-auf-der-admiralbruecke-es-ist-22-uhr-gehen-sie-bitte/4411684.html
+-
+  title: Berliner Zeitung 2023
+  url: https://www.berliner-zeitung.de/mensch-metropole/berlin-admiralbruecke-laermomat-veraergert-kreuzberger-anwohner-bunt-und-bloed-li.435401
+-
+  title: Bezirksamt 2024
+  url: https://www.berlin.de/ba-friedrichshain-kreuzberg/aktuelles/pressemitteilungen/2024/pressemitteilung.1406189.php
+-
+  title: Tagesspiegel 2026
+  url: https://www.tagesspiegel.de/berlin/bezirke/friedrichshain-kreuzberg/hobby-musikerin-bei-offentlicher-session-festgenommen-immer-wieder-streit-auf-der-berliner-admiralbrucke-15751849.html

@@ -1,0 +1,13 @@
+Title: Feedback
+
+----
+
+Heading: Sag uns,
+
+----
+
+Heading-accent: was du denkst.
+
+----
+
+Intro: <p>Ob Anwohnerin, Musiker, Gast oder einfach neugierig: Was gefällt dir an den Abenden auf der Brücke – und was stört dich? Gerade kritische Rückmeldungen aus der Nachbarschaft helfen uns, eine friedliche Lösung zu finden. Wir lesen alles und antworten, wenn du uns eine Adresse dalässt.</p>

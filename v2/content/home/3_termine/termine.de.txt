@@ -1,0 +1,38 @@
+Title: Termine
+
+----
+
+Heading: Nächste Termine
+
+----
+
+Note: <p>Wir spielen <strong>jeden Dienstag am frühen Abend</strong> – bei brauchbarem Wetter. Jeder Abend wird als Versammlung angemeldet.</p>
+
+----
+
+Dates:
+
+-
+  date: 2026-07-21
+  time: ab 18 Uhr
+  title: D-Jam auf der Brücke
+  status: angemeldet
+  note: ""
+-
+  date: 2026-07-28
+  time: ab 18 Uhr
+  title: D-Jam auf der Brücke
+  status: geplant
+  note: ""
+-
+  date: 2026-08-04
+  time: ab 18 Uhr
+  title: D-Jam auf der Brücke
+  status: geplant
+  note: ""
+-
+  date: 2026-08-11
+  time: ab 18 Uhr
+  title: D-Jam auf der Brücke
+  status: geplant
+  note: ""

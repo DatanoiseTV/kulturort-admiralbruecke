@@ -1,0 +1,22 @@
+title: Dokumente
+
+options:
+  delete: false
+
+fields:
+  heading:
+    label: Überschrift
+    type: text
+  heading_accent:
+    label: Betonter Teil der Überschrift (grün)
+    type: text
+  intro:
+    label: Einleitung
+    type: writer
+    marks: [bold]
+
+sections:
+  documents:
+    type: pages
+    label: Dokumente
+    template: dokument

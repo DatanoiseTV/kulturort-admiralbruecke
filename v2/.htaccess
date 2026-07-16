@@ -1,0 +1,23 @@
+# Kulturort Admiralbrücke v2 (Kirby)
+
+RewriteEngine On
+
+# www -> Apex, dauerhaft
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+# Formulare und Newsletter-Links (eigene Endpunkte, vor Kirby)
+RewriteRule ^feedback$ feedback.php [L]
+RewriteRule ^newsletter/anmelden$ newsletter.php?action=signup [L]
+RewriteRule ^newsletter/bestaetigen/([0-9a-f]{64})$ newsletter.php?action=confirm&token=$1 [L]
+RewriteRule ^newsletter/abmelden/([0-9a-f]{64})$ newsletter.php?action=abmelden&token=$1 [L]
+
+# Kirby: Inhalte und Kern nicht direkt ausliefern
+RewriteRule ^content/(.*) index.php [L]
+RewriteRule ^site/(.*) index.php [L]
+RewriteRule ^kirby/(.*) index.php [L]
+
+# Kirby Front-Controller
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [L]

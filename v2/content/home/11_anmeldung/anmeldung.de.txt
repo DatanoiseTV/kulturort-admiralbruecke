@@ -1,0 +1,13 @@
+Title: Newsletter
+
+----
+
+Heading: Bleib auf dem
+
+----
+
+Heading-accent: Laufenden.
+
+----
+
+Text: <p>Jam-Termine, Neues von der Initiative, gelegentliche Einladungen – selten, aber herzlich. Mit Bestätigungslink, jederzeit abmeldbar, Adresse wird für nichts anderes verwendet.</p>

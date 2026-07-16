@@ -1,0 +1,16 @@
+title: News
+
+options:
+  delete: false
+
+fields:
+  heading:
+    label: Überschrift
+    type: text
+
+sections:
+  posts:
+    type: pages
+    label: Beiträge (neuester zuerst)
+    template: newspost
+    sortBy: date desc

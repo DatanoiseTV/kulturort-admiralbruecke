@@ -1,0 +1,20 @@
+Title: Der Ort
+
+----
+
+Heading: Eine Brücke ist zum Überqueren da.
+
+----
+
+Heading-accent: Diese hier ist zum Bleiben.
+
+----
+
+Text:
+
+<p>Die Admiralbrücke steht sinnbildlich wie historisch für das Überwinden von Gegensätzen – für Begegnung und Verständigung. Verkehrsberuhigt, mit Sitzpollern, Wasser und Abendsonne, umgeben vom ständigen Treiben dieses Knotenpunkts, ist sie seit Jahren einer der ganz wenigen Orte der Stadt, an denen man einfach verweilen, Menschen kennenlernen und Freude teilen kann.</p>
+<p>Die Menschen wechseln, unter den Zuhörenden wie unter den Musizierenden – es ist ein Kommen und Gehen mit immer wieder überraschenden Momenten: Kinder tanzen, staunen, bekommen ein Instrument in die Hand. Jemand fängt an zu rappen, nur für ein Lied. Eine Frau kommt dazu und singt, man begleitet sie. Alle verstehen diese Sprache – auch und besonders die Kinder.</p>
+
+----
+
+Features: verkehrsberuhigt / wasser + abendsonne / sitzpoller / kioske, eisdiele, pizzeria / öffentliche toilette / ständiges flanieren

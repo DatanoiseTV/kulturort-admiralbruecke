@@ -1,0 +1,16 @@
+title: Zitat
+
+options:
+  delete: false
+
+fields:
+  text:
+    label: Zitat
+    type: textarea
+    size: small
+  accent:
+    label: Betonter Schluss (grün)
+    type: text
+  source:
+    label: Quelle
+    type: text

@@ -1,0 +1,9 @@
+title: Kulturort Admiralbrücke
+
+fields:
+  beschreibung:
+    label: Seitenbeschreibung (Suchmaschinen)
+    type: textarea
+    size: small
+    maxlength: 160
+    help: Erscheint in Google-Ergebnissen. Maximal 160 Zeichen.

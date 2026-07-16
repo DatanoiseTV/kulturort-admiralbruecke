@@ -1,0 +1,20 @@
+Title: The place
+
+----
+
+Heading: A bridge is for crossing.
+
+----
+
+Heading-accent: This one is for staying.
+
+----
+
+Text:
+
+<p>Symbolically and historically, the Admiralbrücke stands for overcoming divides – for encounter and understanding. Traffic-calmed, with bollards to sit on, water and evening sun, surrounded by the constant bustle of this crossing point, it has been one of the very few places in the city where you can simply linger, meet people and share joy.</p>
+<p>People come and go, among the listeners as among the musicians – with surprising moments again and again: children dance, marvel, get handed an instrument. Someone starts rapping, just for one song. A woman joins in and sings, and the circle accompanies her. Everyone understands this language – especially the children.</p>
+
+----
+
+Features: traffic-calmed / water + evening sun / bollards to sit on / kiosks, ice cream, pizza / public toilet / constant strolling

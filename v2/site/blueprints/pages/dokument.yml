@@ -1,0 +1,21 @@
+title: Dokument
+
+fields:
+  subtitle_line:
+    label: Untertitel (kleine Zeile neben dem Titel)
+    type: text
+  summary:
+    label: Kurzfassung (erscheint nur in der englischen Ausgabe)
+    type: textarea
+    size: medium
+  text:
+    label: Dokumenttext
+    type: writer
+    nodes:
+      - paragraph
+      - heading
+      - bulletList
+      - orderedList
+  signature:
+    label: Unterschrift
+    type: text

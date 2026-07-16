@@ -1,0 +1,13 @@
+Title: Documents
+
+----
+
+Heading: The
+
+----
+
+Heading-accent: full texts
+
+----
+
+Intro: <p>The application to the culture committee and the letter to the editor, unabridged – in the German original, each with a short English summary.</p>

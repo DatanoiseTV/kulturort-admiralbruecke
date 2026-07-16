@@ -1,0 +1,36 @@
+title: Startseite
+
+options:
+  delete: false
+  changeSlug: false
+
+sections:
+  hero:
+    type: fields
+    fields:
+      intro:
+        label: Einleitungstext (unter dem Titel)
+        type: writer
+        marks: [bold]
+        help: Der kurze Text im großen Startbild.
+      notice:
+        label: Amtlicher Vermerk
+        type: text
+        help: 'Zum Beispiel: als Versammlung angemeldet'
+      ticker:
+        label: Laufband-Text (unter dem Startbild)
+        type: text
+        help: Kurze Schlagworte, mit Gedankenstrichen getrennt.
+  image:
+    type: files
+    label: Startbild
+    max: 1
+    layout: cards
+    image:
+      cover: true
+  pages:
+    type: pages
+    label: Abschnitte (Reihenfolge per Ziehen ändern, unsichtbar = aus der Seite genommen)
+    templates:
+      - textsection
+    status: all

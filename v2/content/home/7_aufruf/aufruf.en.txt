@@ -1,0 +1,55 @@
+Title: Support
+
+----
+
+Heading: We don't want a fight.
+
+----
+
+Heading-accent: We want to play.
+
+----
+
+Text:
+
+<p>Four to five residents of a neighbouring building – according to the police – have decided to fight the music. Regularly, often as early as the afternoon, the police are called and criminal complaints are demanded. The music gets broken off; sometimes the bridge is cleared, people are arrested, and the confiscation of instruments is threatened.</p>
+<p>Conversations with the police make one thing clear: <strong>the volume is not the problem.</strong> Officers are responding to repeated calls from the same few people. So far there has been no willingness on that side to talk – the very thing a peaceful solution would need.</p>
+<p>That is why we now register our music as an assembly every week – culture under the protection of the right to demonstrate. The Admiralbrücke has always been a place of performing arts. We want it to stay that way: peaceful, together, for everyone.</p>
+
+----
+
+Wishes-title: What we ask for
+
+----
+
+Wishes:
+
+-
+  item: "Goodwill and understanding from the police on site"
+-
+  item: "Protection against arbitrary criminal complaints"
+-
+  item: "Recognition of the initiative as meaningful and community-building – instead of classifying it as an offence to be punished"
+-
+  item: "Above all: a conversation. We are here."
+
+----
+
+Actions-title: What you can do
+
+----
+
+Actions:
+
+-
+  title: "Come by on a Tuesday."
+  text: "Every person on the bridge shows this place is needed – listening is enough."
+-
+  title: "Bring an instrument or your voice."
+  text: "The D-Jam is open. A shaker, a rattle, one song – everything counts."
+-
+  title: "Contact district politics."
+  text: "An application is before the culture committee of the Friedrichshain-Kreuzberg district assembly (BVV). Support from the neighbourhood gives it weight."
+-
+  title: "Tell people about it."
+  text: "Share the story of the bridge – with neighbours, friends, the press. Publicity protects."

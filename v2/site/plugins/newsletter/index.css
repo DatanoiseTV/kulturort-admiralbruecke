@@ -1,0 +1,24 @@
+.k-newsletter-view .k-newsletter-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+  background: var(--color-white);
+  border-radius: var(--rounded);
+  overflow: hidden;
+}
+
+.k-newsletter-view .k-newsletter-table th,
+.k-newsletter-view .k-newsletter-table td {
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.k-newsletter-view .k-newsletter-table th {
+  font-weight: 600;
+  color: var(--color-text-dimmed);
+}
+
+.k-newsletter-view .k-section {
+  margin-bottom: 2.5rem;
+}

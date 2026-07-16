@@ -1,0 +1,73 @@
+Title: History
+
+----
+
+Heading: Mediation, noise meter, 10 p.m. rule:
+
+----
+
+Heading-accent: all been tried.
+
+----
+
+Intro: <p>The argument about this bridge is much older than the D-Jam. For almost twenty years the city has been trying answers to the same question – and one answer no one has tried yet: recognizing the place as what it has long been. A place of culture.</p>
+
+----
+
+Entries:
+
+-
+  year: "1882"
+  intervention: "false"
+  text: "The Admiralbrücke is completed – a riveted iron arch by engineer Georg Pinkenburg. Today it is a listed monument."
+-
+  year: "1990s"
+  intervention: "false"
+  text: "The district closes the bridge to through traffic with bollards. That traffic calming is what turns it into the meeting place it is today."
+-
+  year: "2007"
+  intervention: "false"
+  text: "An rbb documentary makes the bridge famous city-wide; it shows up in travel guides and becomes the sunset spot."
+-
+  year: "2008"
+  intervention: "false"
+  text: "On summer evenings up to 250 people sit on the bridge. First complaints, a residents' initiative forms. A residents' assembly agrees on a compromise – the traffic calming stays."
+-
+  year: "2010"
+  intervention: "true"
+  text: "Senate-funded mediators work directly on the bridge, three times a week. In August one operation escalates: around a hundred officers clear the bridge; the next day Berlin's Governing Mayor visits in person. Since then the practice stands: at 10 p.m. it's over."
+-
+  year: "2023"
+  intervention: "true"
+  text: "The district installs the 'Lärmomat': a moss wall with a noise traffic light, measuring nights against a 55 dB(A) threshold and glowing red when exceeded. Residents call it pointless – 'the police came every evening anyway'."
+-
+  year: "2024"
+  intervention: "true"
+  text: "The district's verdict after three months of Lärmomat: 63 hours above the threshold, no demonstrable noise reduction. The project is ended, the device removed."
+-
+  year: "2026"
+  intervention: "true"
+  text: "Jam sessions are regularly shut down by police; in June a musician is arrested. Since then the D-Jam registers its evenings as assemblies – and asks the district culture committee to recognize the bridge as a place of culture."
+
+----
+
+Sources:
+
+-
+  title: Wikipedia
+  url: https://de.wikipedia.org/wiki/Admiralbr%C3%BCcke
+-
+  title: taz 2010
+  url: https://taz.de/Mediation-auf-der-Admiralbruecke/!5139320/
+-
+  title: Tagesspiegel 2011
+  url: https://www.tagesspiegel.de/berlin/feiern-auf-der-admiralbruecke-es-ist-22-uhr-gehen-sie-bitte/4411684.html
+-
+  title: Berliner Zeitung 2023
+  url: https://www.berliner-zeitung.de/mensch-metropole/berlin-admiralbruecke-laermomat-veraergert-kreuzberger-anwohner-bunt-und-bloed-li.435401
+-
+  title: Bezirksamt 2024
+  url: https://www.berlin.de/ba-friedrichshain-kreuzberg/aktuelles/pressemitteilungen/2024/pressemitteilung.1406189.php
+-
+  title: Tagesspiegel 2026
+  url: https://www.tagesspiegel.de/berlin/bezirke/friedrichshain-kreuzberg/hobby-musikerin-bei-offentlicher-session-festgenommen-immer-wieder-streit-auf-der-berliner-admiralbrucke-15751849.html

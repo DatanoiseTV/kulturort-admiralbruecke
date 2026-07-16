@@ -1,0 +1,28 @@
+title: D-Jam
+
+options:
+  delete: false
+
+fields:
+  heading:
+    label: Überschrift
+    type: text
+  heading_accent:
+    label: Betonter Teil der Überschrift (grün)
+    type: text
+  slogan:
+    label: Englischer Slogan
+    type: text
+  text:
+    label: Text
+    type: writer
+  features:
+    label: Merkmalszeile
+    type: text
+
+sections:
+  images:
+    type: files
+    label: Bilder (das erste erscheint groß)
+    max: 3
+    layout: cards

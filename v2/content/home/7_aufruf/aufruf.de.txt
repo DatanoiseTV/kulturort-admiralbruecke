@@ -1,0 +1,55 @@
+Title: Aufruf
+
+----
+
+Heading: Wir wollen keinen Streit.
+
+----
+
+Heading-accent: Wir wollen spielen.
+
+----
+
+Text:
+
+<p>Vier bis fünf Anwohner eines benachbarten Hauses – so sagt es die Polizei – haben sich für einen Kampf gegen die Musik entschieden. Regelmäßig, oft schon am Nachmittag, wird die Polizei gerufen und eine Anzeige verlangt. Das führt zum Abbruch der Musik, manchmal zur Räumung der Brücke, zu Festnahmen und angedrohter Konfiszierung von Instrumenten.</p>
+<p>Aus Gesprächen mit der Polizei wird deutlich: <strong>Die Lautstärke ist nicht das Problem.</strong> Die Einsatzkräfte reagieren auf die wiederholten Anrufe immer derselben wenigen Personen. Gesprächsbereitschaft, die eine friedliche Lösung erst möglich machen würde, gibt es von dieser Seite bislang nicht.</p>
+<p>Deshalb melden wir unsere Musik inzwischen jede Woche als Versammlung an – Kultur unter Demonstrationsschutz. Die Admiralbrücke war immer ein Ort der darstellenden Kunst. Wir möchten, dass sie es bleibt: friedlich, gemeinsam, für alle.</p>
+
+----
+
+Wishes-title: Was wir uns wünschen
+
+----
+
+Wishes:
+
+-
+  item: "Einen wohlwollenden, verständnisvollen Umgang der Ordnungskräfte"
+-
+  item: "Schutz vor willkürlicher Anzeigenerstattung"
+-
+  item: "Die Anerkennung der Initiative als sinnstiftend und gemeinschaftsbildend – statt ihrer Einstufung als zu ahndende Ordnungswidrigkeit"
+-
+  item: "Vor allem: ein Gespräch. Wir sind da."
+
+----
+
+Actions-title: Was du tun kannst
+
+----
+
+Actions:
+
+-
+  title: "Komm dienstags vorbei."
+  text: "Jede Person auf der Brücke zeigt, dass dieser Ort gebraucht wird – zuhören genügt."
+-
+  title: "Bring ein Instrument oder deine Stimme mit."
+  text: "Die D-Jam ist offen. Shaker, Rassel, ein Lied – alles zählt."
+-
+  title: "Wende dich an die Bezirkspolitik."
+  text: "Ein Antrag liegt dem Kulturausschuss der BVV Friedrichshain-Kreuzberg vor. Unterstützung aus der Nachbarschaft gibt ihm Gewicht."
+-
+  title: "Erzähl davon."
+  text: "Teile die Geschichte der Brücke – mit Nachbarn, Freundinnen, der Presse. Öffentlichkeit schützt."

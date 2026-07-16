@@ -1,0 +1,39 @@
+title: Aufruf
+
+options:
+  delete: false
+
+fields:
+  heading:
+    label: Überschrift
+    type: text
+  heading_accent:
+    label: Betonter Teil der Überschrift (violett)
+    type: text
+  text:
+    label: Lagebeschreibung
+    type: writer
+  wishes_title:
+    label: Titel der Wunschliste
+    type: text
+  wishes:
+    label: Was wir uns wünschen
+    type: structure
+    fields:
+      item:
+        label: Punkt
+        type: text
+  actions_title:
+    label: Titel der Mitmach-Liste
+    type: text
+  actions:
+    label: Was du tun kannst
+    type: structure
+    fields:
+      title:
+        label: Titel
+        type: text
+      text:
+        label: Beschreibung
+        type: textarea
+        size: small

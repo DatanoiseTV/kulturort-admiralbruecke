@@ -1,0 +1,13 @@
+title: News-Beitrag
+
+num: '{{ page.date.toDate("yyyyMMdd") }}'
+
+fields:
+  date:
+    label: Datum
+    type: date
+    default: today
+    required: true
+  text:
+    label: Text
+    type: writer

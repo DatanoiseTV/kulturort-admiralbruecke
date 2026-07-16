@@ -1,0 +1,16 @@
+title: Newsletter-Anmeldung
+
+options:
+  delete: false
+
+fields:
+  heading:
+    label: Überschrift
+    type: text
+  heading_accent:
+    label: Betonter Teil der Überschrift (grün)
+    type: text
+  text:
+    label: Text
+    type: writer
+    marks: [bold]

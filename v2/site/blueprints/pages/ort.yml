@@ -1,0 +1,26 @@
+title: Der Ort
+
+options:
+  delete: false
+
+fields:
+  heading:
+    label: Überschrift
+    type: text
+  heading_accent:
+    label: Betonter Teil der Überschrift (grün)
+    type: text
+  text:
+    label: Text
+    type: writer
+  features:
+    label: Merkmalszeile (kleine Stichworte unter dem Text)
+    type: text
+    help: Mit Schrägstrichen trennen, z. B. verkehrsberuhigt / wasser + abendsonne
+
+sections:
+  image:
+    type: files
+    label: Bild
+    max: 1
+    layout: cards

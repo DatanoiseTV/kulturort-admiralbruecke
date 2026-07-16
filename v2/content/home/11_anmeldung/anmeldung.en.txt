@@ -1,0 +1,13 @@
+Title: Newsletter
+
+----
+
+Heading: Stay in
+
+----
+
+Heading-accent: the loop.
+
+----
+
+Text: <p>Jam dates, news from the initiative, occasional invitations – rare but heartfelt. Confirmation link, unsubscribe any time, your address is used for nothing else.</p>

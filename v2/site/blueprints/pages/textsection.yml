@@ -1,0 +1,19 @@
+title: Freier Abschnitt
+
+fields:
+  heading:
+    label: Überschrift
+    type: text
+  heading_accent:
+    label: Betonter Teil der Überschrift (grün)
+    type: text
+  text:
+    label: Text
+    type: writer
+
+sections:
+  image:
+    type: files
+    label: Bild (optional, erscheint rechts neben dem Text)
+    max: 1
+    layout: cards
