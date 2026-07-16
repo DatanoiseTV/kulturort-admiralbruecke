@@ -118,6 +118,13 @@ html[data-lang="de"] .en { display: none !important; }
 
 .kopf__nav a:hover { color: var(--acid); }
 
+.kopf__nav a.aktiv {
+  color: var(--acid);
+  text-decoration: underline;
+  text-underline-offset: 0.5em;
+  text-decoration-thickness: 1.5px;
+}
+
 .kopf__lang {
   font-family: var(--font-amt);
   font-size: 0.7rem;

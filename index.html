@@ -79,7 +79,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=3">
+<link rel="stylesheet" href="css/style.css?v=4">
 </head>
 <body>
 
@@ -1012,6 +1012,31 @@
       }
     }
   });
+
+  // Scrollspy: Menüpunkt der sichtbaren Sektion hervorheben
+  if ("IntersectionObserver" in window) {
+    var navZiele = {};
+    document.querySelectorAll(".kopf__nav a[href^='#']").forEach(function (a) {
+      navZiele[a.getAttribute("href").slice(1)] = a;
+    });
+    var spion = new IntersectionObserver(function (eintraege) {
+      eintraege.forEach(function (e) {
+        if (!e.isIntersecting) { return; }
+        var link = navZiele[e.target.id];
+        if (!link) { return; }
+        Object.keys(navZiele).forEach(function (id) {
+          navZiele[id].classList.remove("aktiv");
+          navZiele[id].removeAttribute("aria-current");
+        });
+        link.classList.add("aktiv");
+        link.setAttribute("aria-current", "true");
+      });
+    }, { rootMargin: "-20% 0px -70% 0px" });
+    Object.keys(navZiele).forEach(function (id) {
+      var sektion = document.getElementById(id);
+      if (sektion) { spion.observe(sektion); }
+    });
+  }
 
   // Matomo (selbst gehostet, /statistik): ohne Cookies, respektiert Do-Not-Track
   var _paq = window._paq = window._paq || [];
