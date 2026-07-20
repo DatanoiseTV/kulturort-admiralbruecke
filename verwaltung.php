@@ -260,7 +260,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
             foreach ($empfaenger as $abo) {
                 $abmelden = basis_url() . '/newsletter/abmelden/' . $abo['token'];
                 $body = $text_getaggt . "\n\n--\n"
-                      . "Kulturort Admiralbrücke · dienstags auf der Brücke\n"
+                      . "Kulturort Admiralbrücke · meist dienstags auf der Brücke\n"
                       . "Zur Seite: " . kampagnen_link(basis_url() . '/', $kampagne) . "\n"
                       . "Abmelden: " . $abmelden . "\n";
                 $header = "From: " . ZIEL_MAIL . "\r\n"

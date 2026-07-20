@@ -76,7 +76,7 @@ function optin_mail(string $email, string $token, string $sprache): void {
               . "Wenn du das nicht warst, ignoriere diese Mail einfach – ohne\n"
               . "Bestätigung wird die Adresse nicht dauerhaft gespeichert.\n\n"
               . "Jederzeit abmelden:\n$link_abmelden\n\n"
-              . "Bis Dienstag auf der Brücke,\ndie D-Jam-Gemeinschaft\n";
+              . "Bis bald auf der Brücke,\ndie D-Jam-Gemeinschaft\n";
     }
 
     $betreff_kodiert = '=?UTF-8?B?' . base64_encode($betreff) . '?=';
