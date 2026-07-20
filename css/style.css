@@ -573,6 +573,38 @@ html[data-lang="de"] .en { display: none !important; }
   font-weight: 700;
 }
 
+.nachtruhe {
+  margin-top: clamp(2rem, 4vw, 3.5rem);
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: start;
+  background: var(--schwarz-2);
+  border: 2px solid var(--violett);
+  padding: clamp(1.75rem, 4vw, 3rem);
+  rotate: 0.4deg;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.55);
+}
+
+.nachtruhe__uhr {
+  font-family: var(--font-amt);
+  font-weight: 700;
+  font-size: clamp(2.75rem, 7vw, 5rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--acid);
+}
+
+.nachtruhe h3 { color: var(--weiss); }
+
+.nachtruhe__text p { max-width: var(--mass); }
+.nachtruhe__text p + p { margin-top: 1.15em; }
+.nachtruhe__text strong { color: var(--acid); font-weight: 700; }
+
+@media (max-width: 640px) {
+  .nachtruhe { grid-template-columns: 1fr; gap: 1rem; }
+}
+
 .mitmachen {
   list-style: none;
   counter-reset: schritt;
